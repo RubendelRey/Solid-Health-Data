@@ -1,0 +1,45 @@
+[
+	{
+		"name": "Admin User",
+		"email": "admin@dentalclinic.com",
+		"role": "admin",
+		"password": "password"
+	},
+	{
+		"name": "John Smith",
+		"email": "john.smith@dentalclinic.com",
+		"role": "doctor",
+		"password": "password"
+	},
+	{
+		"name": "Jane Doe",
+		"email": "jane.doe@dentalclinic.com",
+		"role": "doctor",
+		"password": "password"
+	},
+	{
+		"name": "Maria García",
+		"email": "maria.garcia@dentalclinic.com",
+		"role": "doctor",
+		"password": "password"
+	},
+	{
+		"name": "Carlos Rodriguez",
+		"email": "carlos.rodriguez@dentalclinic.com",
+		"role": "doctor",
+		"password": "password"
+	},
+	{
+		"name": "Emma Wilson",
+		"email": "emma.wilson@dentalclinic.com",
+		"role": "doctor",
+		"password": "password"
+	},
+	{
+		"name": "Ahmed Hassan",
+		"email": "ahmed.hassan@dentalclinic.com",
+		"role": "doctor",
+		"specialization": "Orthodontics",
+		"password": "password"
+	}
+]

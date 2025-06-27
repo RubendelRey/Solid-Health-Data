@@ -1,0 +1,288 @@
+[
+	{
+		"name": "Carlos",
+		"surname": "García",
+		"gender": "male",
+		"nif": "12345678A",
+		"dateOfBirth": "1985-06-15T00:00:00.000Z",
+		"direction": {
+			"street": "Calle Mayor, 10",
+			"city": "Madrid",
+			"postalCode": "28001",
+			"province": "Madrid",
+			"country": "Spain"
+		},
+		"phoneNumbers": [
+			"666111222"
+		],
+		"email": "carlos@example.com",
+		"medicalHistory": "No significant medical history"
+	},
+	{
+		"name": "María",
+		"surname": "López",
+		"gender": "female",
+		"nif": "87654321B",
+		"dateOfBirth": "1990-09-22T00:00:00.000Z",
+		"direction": {
+			"street": "Avenida Libertad, 25",
+			"city": "Barcelona",
+			"postalCode": "08001",
+			"province": "Barcelona",
+			"country": "Spain"
+		},
+		"phoneNumbers": [
+			"666333444",
+			"911223344"
+		],
+		"email": "maria@example.com",
+		"medicalHistory": "No significant medical history"
+	},
+	{
+		"name": "Juan",
+		"surname": "Martínez",
+		"gender": "male",
+		"nif": "11222333C",
+		"dateOfBirth": "1978-04-10T00:00:00.000Z",
+		"direction": {
+			"street": "Plaza España, 5",
+			"city": "Sevilla",
+			"postalCode": "41001",
+			"province": "Sevilla",
+			"country": "Spain"
+		},
+		"phoneNumbers": [
+			"699887766"
+		],
+		"email": "juan@example.com",
+		"medicalHistory": "No significant medical history"
+	},
+	{
+		"name": "Ana",
+		"surname": "Fernández",
+		"gender": "female",
+		"nif": "44555666D",
+		"dateOfBirth": "1995-08-18T00:00:00.000Z",
+		"direction": {
+			"street": "Calle Gran Vía, 42",
+			"city": "Madrid",
+			"postalCode": "28013",
+			"province": "Madrid",
+			"country": "Spain"
+		},
+		"phoneNumbers": [
+			"633221100"
+		],
+		"email": "ana@example.com",
+		"medicalHistory": "No significant medical history"
+	},
+	{
+		"name": "Pablo",
+		"surname": "Sánchez",
+		"gender": "male",
+		"nif": "77888999E",
+		"dateOfBirth": "1982-12-05T00:00:00.000Z",
+		"direction": {
+			"street": "Avenida Diagonal, 300",
+			"city": "Barcelona",
+			"postalCode": "08013",
+			"province": "Barcelona",
+			"country": "Spain"
+		},
+		"phoneNumbers": [
+			"622334455"
+		],
+		"email": "pablo@example.com",
+		"medicalHistory": "No significant medical history"
+	},
+	{
+		"name": "Lucía",
+		"surname": "Gómez",
+		"gender": "female",
+		"nif": "00112233F",
+		"dateOfBirth": "1988-03-30T00:00:00.000Z",
+		"direction": {
+			"street": "Calle Alcalá, 120",
+			"city": "Madrid",
+			"postalCode": "28009",
+			"province": "Madrid",
+			"country": "Spain"
+		},
+		"phoneNumbers": [
+			"611223344"
+		],
+		"email": "lucia@example.com",
+		"medicalHistory": "No significant medical history"
+	},
+	{
+		"name": "Javier",
+		"surname": "Torres",
+		"gender": "male",
+		"nif": "33445566G",
+		"dateOfBirth": "1975-10-12T00:00:00.000Z",
+		"direction": {
+			"street": "Paseo de Gracia, 65",
+			"city": "Barcelona",
+			"postalCode": "08008",
+			"province": "Barcelona",
+			"country": "Spain"
+		},
+		"phoneNumbers": [
+			"655443322"
+		],
+		"email": "javier@example.com",
+		"medicalHistory": "No significant medical history"
+	},
+	{
+		"name": "Elena",
+		"surname": "Ruiz",
+		"gender": "female",
+		"nif": "66778899H",
+		"dateOfBirth": "1992-05-08T00:00:00.000Z",
+		"direction": {
+			"street": "Calle Serrano, 25",
+			"city": "Madrid",
+			"postalCode": "28001",
+			"province": "Madrid",
+			"country": "Spain"
+		},
+		"phoneNumbers": [
+			"644332211"
+		],
+		"email": "elena@example.com",
+		"medicalHistory": "No significant medical history"
+	},
+	{
+		"name": "Miguel",
+		"surname": "Navarro",
+		"gender": "male",
+		"nif": "99001122I",
+		"dateOfBirth": "1970-07-25T00:00:00.000Z",
+		"direction": {
+			"street": "Rambla Catalunya, 88",
+			"city": "Barcelona",
+			"postalCode": "08008",
+			"province": "Barcelona",
+			"country": "Spain"
+		},
+		"phoneNumbers": [
+			"677665544"
+		],
+		"email": "miguel@example.com",
+		"medicalHistory": "No significant medical history"
+	},
+	{
+		"name": "Carmen",
+		"surname": "Moreno",
+		"gender": "female",
+		"nif": "22334455J",
+		"dateOfBirth": "1980-02-20T00:00:00.000Z",
+		"direction": {
+			"street": "Avenida de la Constitución, 10",
+			"city": "Sevilla",
+			"postalCode": "41001",
+			"province": "Sevilla",
+			"country": "Spain"
+		},
+		"phoneNumbers": [
+			"688776655"
+		],
+		"email": "carmen@example.com",
+		"medicalHistory": "No significant medical history"
+	},
+	{
+		"name": "David",
+		"surname": "Jiménez",
+		"gender": "male",
+		"nif": "55667788K",
+		"dateOfBirth": "1987-11-15T00:00:00.000Z",
+		"direction": {
+			"street": "Calle Princesa, 30",
+			"city": "Madrid",
+			"postalCode": "28008",
+			"province": "Madrid",
+			"country": "Spain"
+		},
+		"phoneNumbers": [
+			"699008877"
+		],
+		"email": "david@example.com",
+		"medicalHistory": "No significant medical history"
+	},
+	{
+		"name": "Sara",
+		"surname": "Hernández",
+		"gender": "female",
+		"nif": "88990011L",
+		"dateOfBirth": "1993-06-03T00:00:00.000Z",
+		"direction": {
+			"street": "Paseo del Prado, 15",
+			"city": "Madrid",
+			"postalCode": "28014",
+			"province": "Madrid",
+			"country": "Spain"
+		},
+		"phoneNumbers": [
+			"600112233"
+		],
+		"email": "sara@example.com",
+		"medicalHistory": "No significant medical history"
+	},
+	{
+		"name": "Jorge",
+		"surname": "Díaz",
+		"gender": "male",
+		"nif": "11223344M",
+		"dateOfBirth": "1965-09-08T00:00:00.000Z",
+		"direction": {
+			"street": "Gran Vía, 45",
+			"city": "Bilbao",
+			"postalCode": "48001",
+			"province": "Vizcaya",
+			"country": "Spain"
+		},
+		"phoneNumbers": [
+			"611334455"
+		],
+		"email": "jorge@example.com",
+		"medicalHistory": "No significant medical history"
+	},
+	{
+		"name": "Laura",
+		"surname": "Álvarez",
+		"gender": "female",
+		"nif": "44556677N",
+		"dateOfBirth": "1990-04-12T00:00:00.000Z",
+		"direction": {
+			"street": "Calle Velázquez, 60",
+			"city": "Madrid",
+			"postalCode": "28001",
+			"province": "Madrid",
+			"country": "Spain"
+		},
+		"phoneNumbers": [
+			"622115599"
+		],
+		"email": "laura@example.com",
+		"medicalHistory": "No significant medical history"
+	},
+	{
+		"name": "Roberto",
+		"surname": "Muñoz",
+		"gender": "male",
+		"nif": "77889900O",
+		"dateOfBirth": "1972-08-27T00:00:00.000Z",
+		"direction": {
+			"street": "Avenida Meridiana, 350",
+			"city": "Barcelona",
+			"postalCode": "08027",
+			"province": "Barcelona",
+			"country": "Spain"
+		},
+		"phoneNumbers": [
+			"633445566"
+		],
+		"email": "roberto@example.com",
+		"medicalHistory": "No significant medical history"
+	}
+]

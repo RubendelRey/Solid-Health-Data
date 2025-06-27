@@ -1,0 +1,31 @@
+[
+	{
+		"patientIndex": 0,
+		"doctorIndex": 0,
+		"procedureIndex": 0,
+		"status": "completed",
+		"performedDateTime": "2024-01-15T10:00:00.000Z"
+	},
+	{
+		"patientIndex": 1,
+		"doctorIndex": 1,
+		"procedureIndex": 4,
+		"status": "completed",
+		"performedDateTime": "2024-01-20T14:00:00.000Z",
+		"location": "Cardiology Unit"
+	},
+	{
+		"patientIndex": 2,
+		"doctorIndex": 0,
+		"procedureIndex": 2,
+		"status": "completed",
+		"performedDateTime": "2024-01-25T09:30:00.000Z"
+	},
+	{
+		"patientIndex": 0,
+		"doctorIndex": 0,
+		"procedureIndex": 1,
+		"status": "in-progress",
+		"scheduledDateTime": "2024-02-01T11:00:00.000Z"
+	}
+]

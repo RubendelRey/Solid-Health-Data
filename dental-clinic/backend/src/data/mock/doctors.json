@@ -1,0 +1,356 @@
+[
+	{
+		"name": "John Smith",
+		"email": "john.smith@dentalclinic.com",
+		"surname": "MD",
+		"specialties": ["General Dentistry", "Cosmetic Dentistry"],
+		"license": "DEN12345",
+		"collegiateNumber": "C-1234",
+		"qualifications": [
+			{
+				"title": "Doctor of Dental Medicine",
+				"institution": "Harvard School of Dental Medicine",
+				"year": 2010
+			},
+			{
+				"title": "Cosmetic Dentistry Certification",
+				"institution": "American Academy of Cosmetic Dentistry",
+				"year": 2012
+			}
+		],
+		"workHours": [
+			{
+				"day": 1,
+				"morningStart": "09:00",
+				"morningEnd": "14:00",
+				"afternoonStart": "16:00",
+				"afternoonEnd": "20:00"
+			},
+			{
+				"day": 2,
+				"morningStart": "09:00",
+				"morningEnd": "14:00",
+				"afternoonStart": "16:00",
+				"afternoonEnd": "20:00"
+			},
+			{
+				"day": 3,
+				"morningStart": "09:00",
+				"morningEnd": "14:00",
+				"afternoonStart": "16:00",
+				"afternoonEnd": "20:00"
+			},
+			{
+				"day": 4,
+				"morningStart": "09:00",
+				"morningEnd": "14:00",
+				"afternoonStart": "16:00",
+				"afternoonEnd": "20:00"
+			},
+			{
+				"day": 5,
+				"morningStart": "09:00",
+				"morningEnd": "14:00",
+				"afternoonStart": "00:00",
+				"afternoonEnd": "00:00"
+			}
+		],
+		"profileImage": "https://randomuser.me/api/portraits/men/1.jpg",
+		"biography": "Dr. John Smith has over 15 years of experience in general and cosmetic dentistry. He focuses on patient comfort and modern dental techniques."
+	},
+	{
+		"name": "Jane Doe",
+		"email": "jane.doe@dentalclinic.com",
+		"surname": "DDS",
+		"specialties": ["Orthodontics", "Pediatric Dentistry"],
+		"license": "DEN67890",
+		"collegiateNumber": "C-5678",
+		"qualifications": [
+			{
+				"title": "Doctor of Dental Surgery",
+				"institution": "University of California School of Dentistry",
+				"year": 2008
+			},
+			{
+				"title": "Orthodontics Specialization",
+				"institution": "American Board of Orthodontics",
+				"year": 2011
+			}
+		],
+		"workHours": [
+			{
+				"day": 1,
+				"morningStart": "08:30",
+				"morningEnd": "13:30",
+				"afternoonStart": "15:30",
+				"afternoonEnd": "19:30"
+			},
+			{
+				"day": 2,
+				"morningStart": "08:30",
+				"morningEnd": "13:30",
+				"afternoonStart": "15:30",
+				"afternoonEnd": "19:30"
+			},
+			{
+				"day": 3,
+				"morningStart": "00:00",
+				"morningEnd": "00:00",
+				"afternoonStart": "15:30",
+				"afternoonEnd": "19:30"
+			},
+			{
+				"day": 4,
+				"morningStart": "08:30",
+				"morningEnd": "13:30",
+				"afternoonStart": "15:30",
+				"afternoonEnd": "19:30"
+			},
+			{
+				"day": 5,
+				"morningStart": "08:30",
+				"morningEnd": "13:30",
+				"afternoonStart": "15:30",
+				"afternoonEnd": "19:30"
+			}
+		],
+		"profileImage": "https://randomuser.me/api/portraits/women/1.jpg",
+		"biography": "Dr. Jane Doe specializes in orthodontics and pediatric dentistry with a focus on making dental care accessible and comfortable for children."
+	},
+	{
+		"name": "Maria García",
+		"email": "maria.garcia@dentalclinic.com",
+		"surname": "PhD",
+		"specialties": ["Endodontics", "Dental Implants"],
+		"license": "DEN54321",
+		"collegiateNumber": "C-9876",
+		"qualifications": [
+			{
+				"title": "Doctor of Dental Science",
+				"institution": "Universidad Complutense de Madrid",
+				"year": 2005
+			},
+			{
+				"title": "PhD in Endodontics",
+				"institution": "Universidad de Barcelona",
+				"year": 2009
+			}
+		],
+		"workHours": [
+			{
+				"day": 1,
+				"morningStart": "09:00",
+				"morningEnd": "14:00",
+				"afternoonStart": "16:30",
+				"afternoonEnd": "20:30"
+			},
+			{
+				"day": 2,
+				"morningStart": "09:00",
+				"morningEnd": "14:00",
+				"afternoonStart": "16:30",
+				"afternoonEnd": "20:30"
+			},
+			{
+				"day": 3,
+				"morningStart": "09:00",
+				"morningEnd": "14:00",
+				"afternoonStart": "00:00",
+				"afternoonEnd": "00:00"
+			},
+			{
+				"day": 4,
+				"morningStart": "09:00",
+				"morningEnd": "14:00",
+				"afternoonStart": "16:30",
+				"afternoonEnd": "20:30"
+			},
+			{
+				"day": 5,
+				"morningStart": "09:00",
+				"morningEnd": "14:00",
+				"afternoonStart": "00:00",
+				"afternoonEnd": "00:00"
+			}
+		],
+		"profileImage": "https://randomuser.me/api/portraits/women/2.jpg",
+		"biography": "Dr. García is a leading specialist in endodontics and dental implants with extensive research experience in the field."
+	},
+	{
+		"name": "Carlos Rodriguez",
+		"email": "carlos.rodriguez@dentalclinic.com",
+		"surname": "DMD",
+		"specialties": ["Periodontics", "Oral Surgery"],
+		"license": "DEN98765",
+		"collegiateNumber": "C-3456",
+		"qualifications": [
+			{
+				"title": "Doctor of Dental Medicine",
+				"institution": "University of Valencia",
+				"year": 2006
+			},
+			{
+				"title": "Periodontics Certification",
+				"institution": "Spanish Society of Periodontology",
+				"year": 2010
+			}
+		],
+		"workHours": [
+			{
+				"day": 1,
+				"morningStart": "10:00",
+				"morningEnd": "15:00",
+				"afternoonStart": "17:00",
+				"afternoonEnd": "21:00"
+			},
+			{
+				"day": 2,
+				"morningStart": "00:00",
+				"morningEnd": "00:00",
+				"afternoonStart": "17:00",
+				"afternoonEnd": "21:00"
+			},
+			{
+				"day": 3,
+				"morningStart": "10:00",
+				"morningEnd": "15:00",
+				"afternoonStart": "17:00",
+				"afternoonEnd": "21:00"
+			},
+			{
+				"day": 4,
+				"morningStart": "10:00",
+				"morningEnd": "15:00",
+				"afternoonStart": "17:00",
+				"afternoonEnd": "21:00"
+			},
+			{
+				"day": 5,
+				"morningStart": "10:00",
+				"morningEnd": "15:00",
+				"afternoonStart": "00:00",
+				"afternoonEnd": "00:00"
+			}
+		],
+		"profileImage": "https://randomuser.me/api/portraits/men/2.jpg",
+		"biography": "Dr. Rodriguez has specialized in periodontics and oral surgery, focusing on minimally invasive techniques and patient rehabilitation."
+	},
+	{
+		"name": "Emma Wilson",
+		"email": "emma.wilson@dentalclinic.com",
+		"surname": "DMD",
+		"specialties": ["Prosthodontics", "Aesthetic Dentistry"],
+		"license": "DEN34567",
+		"collegiateNumber": "C-7890",
+		"qualifications": [
+			{
+				"title": "Doctor of Dental Medicine",
+				"institution": "New York University College of Dentistry",
+				"year": 2009
+			},
+			{
+				"title": "Prosthodontics Specialization",
+				"institution": "American Board of Prosthodontics",
+				"year": 2012
+			}
+		],
+		"workHours": [
+			{
+				"day": 1,
+				"morningStart": "08:00",
+				"morningEnd": "13:00",
+				"afternoonStart": "15:00",
+				"afternoonEnd": "19:00"
+			},
+			{
+				"day": 2,
+				"morningStart": "08:00",
+				"morningEnd": "13:00",
+				"afternoonStart": "15:00",
+				"afternoonEnd": "19:00"
+			},
+			{
+				"day": 3,
+				"morningStart": "08:00",
+				"morningEnd": "13:00",
+				"afternoonStart": "15:00",
+				"afternoonEnd": "19:00"
+			},
+			{
+				"day": 4,
+				"morningStart": "00:00",
+				"morningEnd": "00:00",
+				"afternoonStart": "00:00",
+				"afternoonEnd": "00:00"
+			},
+			{
+				"day": 5,
+				"morningStart": "08:00",
+				"morningEnd": "13:00",
+				"afternoonStart": "15:00",
+				"afternoonEnd": "19:00"
+			}
+		],
+		"profileImage": "https://randomuser.me/api/portraits/women/3.jpg",
+		"biography": "Dr. Wilson is a prosthodontist with extensive experience in aesthetic dentistry and full mouth reconstruction using the latest technologies."
+	},
+	{
+		"name": "Ahmed Hassan",
+		"email": "ahmed.hassan@dentalclinic.com",
+		"surname": "DDS",
+		"specialties": ["Orthodontics", "Dentofacial Orthopedics"],
+		"license": "DEN87654",
+		"collegiateNumber": "C-4321",
+		"qualifications": [
+			{
+				"title": "Doctor of Dental Surgery",
+				"institution": "University of Pennsylvania School of Dental Medicine",
+				"year": 2007
+			},
+			{
+				"title": "Orthodontics Residency",
+				"institution": "University of Michigan",
+				"year": 2010
+			}
+		],
+		"workHours": [
+			{
+				"day": 1,
+				"morningStart": "09:30",
+				"morningEnd": "14:30",
+				"afternoonStart": "16:30",
+				"afternoonEnd": "20:30"
+			},
+			{
+				"day": 2,
+				"morningStart": "09:30",
+				"morningEnd": "14:30",
+				"afternoonStart": "00:00",
+				"afternoonEnd": "00:00"
+			},
+			{
+				"day": 3,
+				"morningStart": "09:30",
+				"morningEnd": "14:30",
+				"afternoonStart": "16:30",
+				"afternoonEnd": "20:30"
+			},
+			{
+				"day": 4,
+				"morningStart": "09:30",
+				"morningEnd": "14:30",
+				"afternoonStart": "16:30",
+				"afternoonEnd": "20:30"
+			},
+			{
+				"day": 5,
+				"morningStart": "09:30",
+				"morningEnd": "14:30",
+				"afternoonStart": "00:00",
+				"afternoonEnd": "00:00"
+			}
+		],
+		"profileImage": "https://randomuser.me/api/portraits/men/3.jpg",
+		"biography": "Dr. Hassan specializes in orthodontics and dentofacial orthopedics with a particular focus on early intervention treatment for children and teenagers."
+	}
+]

@@ -1,0 +1,21 @@
+<svg
+							className="clinic-logo"
+							viewBox="0 0 100 100"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								d="M50 15C35 15 25 25 25 40C25 55 35 75 45 85C47 87 50 90 50 90C50 90 53 87 55 85C65 75 75 55 75 40C75 25 65 15 50 15Z"
+								fill="#0066CC"
+								stroke="#003D7A"
+								strokeWidth="2"
+							/>
+							<circle cx="40" cy="35" r="3" fill="white" />
+							<circle cx="60" cy="35" r="3" fill="white" />
+							<path
+								d="M35 50C35 50 42 55 50 55C58 55 65 50 65 50"
+								stroke="white"
+								strokeWidth="2"
+								strokeLinecap="round"
+							/>
+						</svg>

@@ -1,0 +1,47 @@
+[
+	{
+		"patientIndex": 0,
+		"allergyIndex": 0,
+		"clinicalStatus": {
+			"coding": [
+				{
+					"system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+					"code": "active",
+					"display": "Active"
+				}
+			]
+		},
+		"criticality": "high",
+		"recordedDate": "2024-01-10T09:00:00Z"
+	},
+	{
+		"patientIndex": 1,
+		"allergyIndex": 1,
+		"clinicalStatus": {
+			"coding": [
+				{
+					"system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+					"code": "active",
+					"display": "Active"
+				}
+			]
+		},
+		"criticality": "high",
+		"recordedDate": "2024-01-12T14:00:00Z"
+	},
+	{
+		"patientIndex": 2,
+		"allergyIndex": 3,
+		"clinicalStatus": {
+			"coding": [
+				{
+					"system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+					"code": "active",
+					"display": "Active"
+				}
+			]
+		},
+		"criticality": "high",
+		"recordedDate": "2024-01-18T11:00:00Z"
+	}
+]

@@ -1,0 +1,282 @@
+[
+	{
+		"code": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "91936005",
+					"display": "Penicillin allergy"
+				}
+			],
+			"text": "Penicillin allergy"
+		},
+		"category": ["medication"],
+		"description": "Common antibiotic that causes allergic reactions in some patients"
+	},
+	{
+		"code": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "1003755004",
+					"display": "Latex allergy"
+				}
+			],
+			"text": "Latex allergy"
+		},
+		"category": ["environment"],
+		"description": "Material used in gloves and some dental equipment"
+	},
+	{
+		"code": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "293718005",
+					"display": "Local anesthetic allergy"
+				}
+			],
+			"text": "Local anesthetic allergy"
+		},
+		"category": ["medication"],
+		"description": "Numbing medications used during dental procedures"
+	},
+	{
+		"code": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "293597001",
+					"display": "Codeine allergy"
+				}
+			],
+			"text": "Codeine allergy"
+		},
+		"category": ["medication"],
+		"description": "Pain medication that may cause allergic reactions"
+	},
+	{
+		"code": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "293586001",
+					"display": "Aspirin allergy"
+				}
+			],
+			"text": "Aspirin allergy"
+		},
+		"category": ["medication"],
+		"description": "Common pain reliever that can trigger allergic responses"
+	},
+	{
+		"code": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "293619005",
+					"display": "Ibuprofen allergy"
+				}
+			],
+			"text": "Ibuprofen allergy"
+		},
+		"category": ["medication"],
+		"description": "Anti-inflammatory medication used for pain relief"
+	},
+	{
+		"code": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "91939003",
+					"display": "Sulfonamide allergy"
+				}
+			],
+			"text": "Sulfa drugs allergy"
+		},
+		"category": ["medication"],
+		"description": "Antibiotics that can cause severe allergic reactions"
+	},
+	{
+		"code": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "294505008",
+					"display": "Amoxicillin allergy"
+				}
+			],
+			"text": "Amoxicillin allergy"
+		},
+		"category": ["medication"],
+		"description": "Beta-lactam antibiotic commonly used for dental infections"
+	},
+	{
+		"code": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "294561002",
+					"display": "Clindamycin allergy"
+				}
+			],
+			"text": "Clindamycin allergy"
+		},
+		"category": ["medication"],
+		"description": "Antibiotic used for serious dental infections"
+	},
+	{
+		"code": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "294567003",
+					"display": "Metronidazole allergy"
+				}
+			],
+			"text": "Metronidazole allergy"
+		},
+		"category": ["medication"],
+		"description": "Antibiotic and antiprotozoal medication used for dental infections"
+	},
+	{
+		"code": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "293722000",
+					"display": "Lidocaine allergy"
+				}
+			],
+			"text": "Lidocaine allergy"
+		},
+		"category": ["medication"],
+		"description": "Local anesthetic commonly used in dental procedures"
+	},
+	{
+		"code": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "419788000",
+					"display": "Nickel allergy"
+				}
+			],
+			"text": "Nickel allergy"
+		},
+		"category": ["environment"],
+		"description": "Metal used in some orthodontic appliances and dental work"
+	},
+	{
+		"code": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "294472005",
+					"display": "Azithromycin allergy"
+				}
+			],
+			"text": "Azithromycin allergy"
+		},
+		"category": ["medication"],
+		"description": "Macrolide antibiotic used for dental and oral infections"
+	},
+	{
+		"code": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "91931000",
+					"display": "Erythromycin allergy"
+				}
+			],
+			"text": "Erythromycin allergy"
+		},
+		"category": ["medication"],
+		"description": "Antibiotic used to treat dental infections"
+	},
+	{
+		"code": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "294592000",
+					"display": "Tetracycline allergy"
+				}
+			],
+			"text": "Tetracycline allergy"
+		},
+		"category": ["medication"],
+		"description": "Antibiotic that can cause tooth discoloration and allergic reactions"
+	},
+	{
+		"code": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "294951003",
+					"display": "Fluoride allergy"
+				}
+			],
+			"text": "Fluoride allergy"
+		},
+		"category": ["environment"],
+		"description": "Used in dental treatments and some patients may have sensitivity"
+	},
+	{
+		"code": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "294431008",
+					"display": "Chlorhexidine allergy"
+				}
+			],
+			"text": "Chlorhexidine allergy"
+		},
+		"category": ["environment"],
+		"description": "Antiseptic used in mouthwashes and dental preparations"
+	},
+	{
+		"code": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "300913006",
+					"display": "Shellfish allergy"
+				}
+			],
+			"text": "Shellfish allergy"
+		},
+		"category": ["food"],
+		"description": "May cause cross-reactions with certain dental materials"
+	},
+	{
+		"code": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "300910009",
+					"display": "Pollen allergy"
+				}
+			],
+			"text": "Pollen allergy"
+		},
+		"category": ["environment"],
+		"description": "Seasonal allergen that may increase sensitivity during dental work"
+	},
+	{
+		"code": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "294535001",
+					"display": "Cephalexin allergy"
+				}
+			],
+			"text": "Cephalexin allergy"
+		},
+		"category": ["medication"],
+		"description": "Cephalosporin antibiotic used for bacterial infections"
+	}
+]

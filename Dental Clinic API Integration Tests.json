@@ -1,0 +1,2529 @@
+{
+	"info": {
+		"_postman_id": "b2c8e5fb-f51f-42a6-b9a0-85c016cf7bc1",
+		"name": "Dental Clinic API",
+		"description": "Complete API collection for testing all endpoints in the Dental Clinic management system",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40079814"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Login should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test('Response should contain token and user data', function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('token');",
+									"    pm.expect(jsonData).to.have.property('id');",
+									"    pm.expect(jsonData).to.have.property('role');",
+									"});",
+									"",
+									"if (pm.response.code === 200) {",
+									"    var jsonData = pm.response.json();",
+									"    pm.collectionVariables.set('authToken', jsonData.token);",
+									"    pm.collectionVariables.set('userId', jsonData.id);",
+									"    pm.collectionVariables.set('userRole', jsonData.role);",
+									"    console.log('Login successful - Token saved');",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@dentalclinic.com\",\n    \"password\": \"password\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/login",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "auth", "login"]
+						},
+						"description": "Login with email and password"
+					},
+					"response": []
+				},
+				{
+					"name": "Register User (Admin Only)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Registration should return 201 Created', function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"pm.test('Response should contain user data', function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('id');",
+									"    pm.expect(jsonData).to.have.property('role');",
+									"    pm.expect(jsonData).to.have.property('token');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test\",\n    \"surname\": \"Doctor\",\n    \"email\": \"testdoctor@clinic.com\",\n    \"password\": \"password\",\n    \"role\": \"doctor\",\n    \"doctorData\": {\n        \"specialization\": \"General Dentistry\",\n        \"collegiateNumber\": \"COL12345\",\n        \"license\": \"LIC67890\",\n        \"specialties\": [\"general\", \"orthodontics\"],\n        \"biography\": \"Experienced dental professional\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/register",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "auth", "register"]
+						},
+						"description": "Register a new user (admin only)"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Current User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Get current user should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test('Response should contain user data', function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('name');",
+									"    pm.expect(jsonData).to.have.property('email');",
+									"    pm.expect(jsonData).to.have.property('role');",
+									"});",
+									"",
+									"if (pm.response.code === 200) {",
+									"    var jsonData = pm.response.json();",
+									"    pm.collectionVariables.set('currentUserId', jsonData._id);",
+									"    console.log('Current user ID:', jsonData._id);",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/me",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "auth", "me"]
+						},
+						"description": "Get current logged in user details"
+					},
+					"response": []
+				}
+			],
+			"description": "Authentication and user management endpoints"
+		},
+		{
+			"name": "User Management",
+			"item": [
+				{
+					"name": "Get All Users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Get all users should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test('Response should be an array', function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.be.an('array');",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/users",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "users"]
+						},
+						"description": "Get all users (admin only)"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Patient User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Create patient user should return 201 Created', function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"pm.test('Response should contain user data', function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('id');",
+									"    pm.expect(jsonData).to.have.property('role');",
+									"    pm.expect(jsonData.role).to.equal('patient');",
+									"});",
+									"",
+									"if (pm.response.code === 201) {",
+									"    var jsonData = pm.response.json();",
+									"    pm.collectionVariables.set('testUserId', jsonData.id);",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test\",\n    \"surname\": \"Test\",\n    \"email\": \"patient.test@email.com\",\n    \"password\": \"password\",\n    \"role\": \"patient\",\n    \"patientData\": {\n        \"nif\": \"PatientTest\",\n        \"dateOfBirth\": \"1990-05-15\",\n        \"gender\": \"male\",\n        \"phoneNumbers\": [\"666777888\"],\n        \"address\": \"Calle Mayor 123, Madrid\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/users",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "users"]
+						},
+						"description": "Create a new patient user"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Patient to be deleted",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Create patient user should return 201 Created', function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"pm.test('Response should contain user data', function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('id');",
+									"    pm.expect(jsonData).to.have.property('role');",
+									"    pm.expect(jsonData.role).to.equal('patient');",
+									"});",
+									"",
+									"if (pm.response.code === 201) {",
+									"    var jsonData = pm.response.json();",
+									"    pm.collectionVariables.set('testUserToBeDeletedId', jsonData.id);",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test\",\n    \"surname\": \"Test\",\n    \"email\": \"patientdelete.test@email.com\",\n    \"password\": \"password\",\n    \"role\": \"patient\",\n    \"patientData\": {\n        \"nif\": \"PatientDeleteTest\",\n        \"dateOfBirth\": \"1990-05-15\",\n        \"gender\": \"male\",\n        \"phoneNumbers\": [\"666777888\"],\n        \"address\": \"Calle Mayor 123, Madrid\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/users",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "users"]
+						},
+						"description": "Create a new patient user"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Doctor User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Create doctor user should return 201 Created', function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"pm.test('Response should contain user data', function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('id');",
+									"    pm.expect(jsonData).to.have.property('role');",
+									"    pm.expect(jsonData.role).to.equal('doctor');",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test\",\n    \"surname\": \"Test\",\n    \"email\": \"doctor.test@clinic.com\",\n    \"password\": \"doctor123\",\n    \"role\": \"doctor\",\n    \"doctorData\": {\n        \"specialization\": \"Orthodontics\",\n        \"collegiateNumber\": \"COL54321\",\n        \"license\": \"LIC09876\",\n        \"specialties\": [\"orthodontics\", \"periodontics\"],\n        \"biography\": \"Specialist in orthodontics with 10 years of experience\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/users",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "users"]
+						},
+						"description": "Create a new doctor user"
+					},
+					"response": []
+				},
+				{
+					"name": "Get User by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Get user by ID should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test('Response should contain user data', function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('_id');",
+									"    pm.expect(jsonData).to.have.property('email');",
+									"    pm.expect(jsonData).to.have.property('role');",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/users/{{testUserId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "users", "{{testUserId}}"]
+						},
+						"description": "Get a specific user by ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Users by Role",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Get users by role should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/users/role/doctor",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "users", "role", "doctor"]
+						},
+						"description": "Get users by role"
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Update user should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Updated Name\",\n    \"email\": \"updated@email.com\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/users/{{testUserId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "users", "{{testUserId}}"]
+						},
+						"description": "Update user information"
+					},
+					"response": []
+				},
+				{
+					"name": "Change User Password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Change user password should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"newPassword\": \"newpassword\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/users/{{testUserId}}/password",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "users", "{{testUserId}}", "password"]
+						},
+						"description": "Change user password"
+					},
+					"response": []
+				},
+				{
+					"name": "Toggle User Status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Toggle user status should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/users/{{testUserId}}/status",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "users", "{{testUserId}}", "status"]
+						},
+						"description": "Toggle user active/inactive status"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Delete user should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test('Response should confirm deletion', function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('message');",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/users/{{testUserToBeDeletedId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "users", "{{testUserToBeDeletedId}}"]
+						},
+						"description": "Delete a user"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Patient to be deleted",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Create patient user should return 201 Created', function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"pm.test('Response should contain user data', function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('id');",
+									"    pm.expect(jsonData).to.have.property('role');",
+									"    pm.expect(jsonData.role).to.equal('patient');",
+									"});",
+									"",
+									"if (pm.response.code === 201) {",
+									"    var jsonData = pm.response.json();",
+									"    pm.collectionVariables.set('testUserToBeDeletedId', jsonData.id);",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test\",\n    \"surname\": \"Test\",\n    \"email\": \"patientdelete.test@email.com\",\n    \"password\": \"password\",\n    \"role\": \"patient\",\n    \"patientData\": {\n        \"nif\": \"PatientDeleteTest\",\n        \"dateOfBirth\": \"1990-05-15\",\n        \"gender\": \"male\",\n        \"phoneNumbers\": [\"666777888\"],\n        \"address\": \"Calle Mayor 123, Madrid\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/users",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "users"]
+						},
+						"description": "Create a new patient user"
+					},
+					"response": []
+				}
+			],
+			"description": "User CRUD operations (Admin only)"
+		},
+		{
+			"name": "Patients",
+			"item": [
+				{
+					"name": "Get All Patients",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Get all patients should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test('Response should contain patients data', function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('patients');",
+									"    pm.expect(jsonData).to.have.property('count');",
+									"    pm.expect(jsonData.patients).to.be.an('array');",
+									"});",
+									"",
+									"if (pm.response.code === 200) {",
+									"    var jsonData = pm.response.json();",
+									"    if (jsonData.patients && jsonData.patients.length > 0) {",
+									"        pm.collectionVariables.set('testPatientId', jsonData.patients[0]._id);",
+									"    }",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/patients?limit=10&page=1&sort=-createdAt",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "patients"],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "sort",
+									"value": "-createdAt"
+								}
+							]
+						},
+						"description": "Get all patients with pagination"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Patient by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Get patient by ID should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/patients/{{testPatientId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "patients", "{{testPatientId}}"]
+						},
+						"description": "Get a specific patient by ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Patient",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Update patient should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test('Response should contain updated patient data', function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('_id');",
+									"    pm.expect(jsonData).to.have.property('name');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Ana María\",\n    \"phoneNumbers\": [\"655444333\", \"912345678\"]\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/patients/{{testPatientId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "patients", "{{testPatientId}}"]
+						},
+						"description": "Update patient information"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Patient Allergies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Get patient allergies should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/patients/{{testPatientId}}/allergies",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "patients", "{{testPatientId}}", "allergies"]
+						},
+						"description": "Get all allergies for a patient"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Patient Interventions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Get patient interventions should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/patients/{{testPatientId}}/interventions",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "patients", "{{testPatientId}}", "interventions"]
+						},
+						"description": "Get all interventions for a patient"
+					},
+					"response": []
+				}
+			],
+			"description": "Patient management endpoints"
+		},
+		{
+			"name": "Doctors",
+			"item": [
+				{
+					"name": "Get All Doctors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Get all doctors should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test('Response should contain doctors data', function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('doctors');",
+									"    pm.expect(jsonData).to.have.property('count');",
+									"    pm.expect(jsonData.doctors).to.be.an('array');",
+									"});",
+									"",
+									"if (pm.response.code === 200) {",
+									"    var jsonData = pm.response.json();",
+									"    if (jsonData.doctors && jsonData.doctors.length > 0) {",
+									"        pm.collectionVariables.set('testDoctorId', jsonData.doctors[0]._id);",
+									"    }",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/doctors",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "doctors"]
+						},
+						"description": "Get all doctors"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Doctor by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Get doctor by ID should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/doctors/{{testDoctorId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "doctors", "{{testDoctorId}}"]
+						},
+						"description": "Get a specific doctor by ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Available Doctors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Get available doctors should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/doctors/available?date=2025-06-15&timeSlot=10:00",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "doctors", "available"],
+							"query": [
+								{
+									"key": "date",
+									"value": "2025-06-15"
+								},
+								{
+									"key": "timeSlot",
+									"value": "10:00"
+								}
+							]
+						},
+						"description": "Get available doctors for a specific time"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Doctor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Update doctor should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"specialization\": \"Advanced Oral Surgery\",\n    \"biography\": \"Updated biography with more experience\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/doctors/{{testDoctorId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "doctors", "{{testDoctorId}}"]
+						},
+						"description": "Update doctor information"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Doctor Work Hours",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Update doctor work hours should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"workHours\": [\n        {\n            \"day\": 1,\n            \"morningStart\": \"08:00\",\n            \"morningEnd\": \"13:00\",\n            \"afternoonStart\": \"15:00\",\n            \"afternoonEnd\": \"19:00\"\n        },\n        {\n            \"day\": 2,\n            \"morningStart\": \"09:00\",\n            \"morningEnd\": \"14:00\",\n            \"afternoonStart\": \"16:00\",\n            \"afternoonEnd\": \"20:00\"\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/doctors/{{testDoctorId}}/work-hours",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "doctors", "{{testDoctorId}}", "work-hours"]
+						},
+						"description": "Update doctor work hours"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Doctor Available Time Slots",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Get doctor available time slots should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/doctors/{{testDoctorId}}/available-slots?date=2025-06-15",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "doctors", "{{testDoctorId}}", "available-slots"],
+							"query": [
+								{
+									"key": "date",
+									"value": "2025-06-15"
+								}
+							]
+						},
+						"description": "Get available time slots for a doctor on a specific date"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Doctor Patients",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Get doctor patients should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/doctors/{{testDoctorId}}/patients",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "doctors", "{{testDoctorId}}", "patients"]
+						},
+						"description": "Get patients associated with a doctor"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Doctor Future Appointments",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Get doctor future appointments should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/doctors/{{testDoctorId}}/future-appointments",
+							"host": ["{{baseUrl}}"],
+							"path": [
+								"api",
+								"doctors",
+								"{{testDoctorId}}",
+								"future-appointments"
+							]
+						},
+						"description": "Get future appointments for a doctor"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Doctor Past Appointments",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Get doctor past appointments should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/doctors/{{testDoctorId}}/past-appointments",
+							"host": ["{{baseUrl}}"],
+							"path": [
+								"api",
+								"doctors",
+								"{{testDoctorId}}",
+								"past-appointments"
+							]
+						},
+						"description": "Get past appointments for a doctor"
+					},
+					"response": []
+				}
+			],
+			"description": "Doctor management endpoints"
+		},
+		{
+			"name": "Interventions & Appointments",
+			"item": [
+				{
+					"name": "Get All Interventions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Get all interventions should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test('Response should contain interventions data', function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('interventions');",
+									"    pm.expect(jsonData).to.have.property('count');",
+									"    pm.expect(jsonData.interventions).to.be.an('array');",
+									"});",
+									"",
+									"if (pm.response.code === 200) {",
+									"    var jsonData = pm.response.json();",
+									"    if (jsonData.interventions && jsonData.interventions.length > 0) {",
+									"        pm.collectionVariables.set('testInterventionId', jsonData.interventions[0]._id);",
+									"        pm.collectionVariables.set('testInterventionTypeId', jsonData.interventions[0].interventionType);",
+									"    }",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/interventions",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "interventions"]
+						},
+						"description": "Get all interventions"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Intervention by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Get intervention by ID should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/interventions/{{testInterventionId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "interventions", "{{testInterventionId}}"]
+						},
+						"description": "Get a specific intervention by ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Intervention",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Create intervention should return 201 Created', function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"pm.test('Response should contain intervention data', function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('_id');",
+									"    pm.expect(jsonData).to.have.property('patient');",
+									"    pm.expect(jsonData).to.have.property('doctor');",
+									"    pm.expect(jsonData).to.have.property('state');",
+									"});",
+									"",
+									"if (pm.response.code === 201) {",
+									"    var jsonData = pm.response.json();",
+									"    pm.collectionVariables.set('newInterventionId', jsonData._id);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"patient\": \"{{testPatientId}}\",\n    \"doctor\": \"{{testDoctorId}}\",\n    \"interventionType\": \"{{testInterventionTypeId}}\",\n    \"scheduledDate\": \"2025-06-20T10:00:00.000Z\",\n    \"notes\": \"Regular dental checkup\",\n    \"state\": \"scheduled\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/interventions",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "interventions"]
+						},
+						"description": "Create a new intervention"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Intervention",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Update intervention should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"notes\": \"Updated notes for the intervention\",\n    \"state\": \"in_progress\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/interventions/{{testInterventionId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "interventions", "{{testInterventionId}}"]
+						},
+						"description": "Update intervention information"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Intervention State",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Update intervention state should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"state\": \"completed\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/interventions/{{testInterventionId}}/state",
+							"host": ["{{baseUrl}}"],
+							"path": [
+								"api",
+								"interventions",
+								"{{testInterventionId}}",
+								"state"
+							]
+						},
+						"description": "Update intervention state"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Doctor Interventions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Get doctor interventions should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/interventions/doctor/{{testDoctorId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "interventions", "doctor", "{{testDoctorId}}"]
+						},
+						"description": "Get interventions for a specific doctor"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Patient Interventions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Get patient interventions should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/interventions/patient/{{testPatientId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "interventions", "patient", "{{testPatientId}}"]
+						},
+						"description": "Get interventions for a specific patient"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Available Appointment Slots",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Get available appointment slots should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/interventions/appointments/available?doctorId={{testDoctorId}}&date=2025-06-15&interventionTypeId={{testInterventionTypeId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "interventions", "appointments", "available"],
+							"query": [
+								{
+									"key": "doctorId",
+									"value": "{{testDoctorId}}"
+								},
+								{
+									"key": "date",
+									"value": "2025-06-15"
+								},
+								{
+									"key": "interventionTypeId",
+									"value": "{{testInterventionTypeId}}"
+								}
+							]
+						},
+						"description": "Get available appointment slots"
+					},
+					"response": []
+				},
+				{
+					"name": "Check Doctor Availability",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Check doctor availability should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/interventions/appointments/check-availability?doctorId={{testDoctorId}}&dateTime=2025-06-15T10:00:00Z&interventionTypeId={{testInterventionTypeId}}",
+							"host": ["{{baseUrl}}"],
+							"path": [
+								"api",
+								"interventions",
+								"appointments",
+								"check-availability"
+							],
+							"query": [
+								{
+									"key": "doctorId",
+									"value": "{{testDoctorId}}"
+								},
+								{
+									"key": "dateTime",
+									"value": "2025-06-15T10:00:00Z"
+								},
+								{
+									"key": "interventionTypeId",
+									"value": "{{testInterventionTypeId}}"
+								}
+							]
+						},
+						"description": "Check if doctor is available at specific time"
+					},
+					"response": []
+				},
+				{
+					"name": "Schedule Appointment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Schedule appointment should return 201 Created', function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"patient\": \"{{testPatientId}}\",\n    \"doctor\": \"{{testDoctorId}}\",\n    \"interventionType\": \"{{testInterventionTypeId}}\",\n    \"date\": \"2035-06-26T11:00:00.000Z\",\n    \"notes\": \"Scheduled appointment\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/interventions/appointments",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "interventions", "appointments"]
+						},
+						"description": "Schedule a new appointment"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Doctor Appointments",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Get doctor appointments should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/interventions/appointments/doctor/{{testDoctorId}}?startDate=2025-06-01&endDate=2025-06-30",
+							"host": ["{{baseUrl}}"],
+							"path": [
+								"api",
+								"interventions",
+								"appointments",
+								"doctor",
+								"{{testDoctorId}}"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2025-06-01"
+								},
+								{
+									"key": "endDate",
+									"value": "2025-06-30"
+								}
+							]
+						},
+						"description": "Get appointments for a doctor"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Patient Appointments",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Get patient appointments should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/interventions/appointments/patient/{{testPatientId}}",
+							"host": ["{{baseUrl}}"],
+							"path": [
+								"api",
+								"interventions",
+								"appointments",
+								"patient",
+								"{{testPatientId}}"
+							]
+						},
+						"description": "Get appointments for a patient"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Patient Past Appointments",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Get patient past appointments should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/interventions/appointments/patient/{{testPatientId}}/past",
+							"host": ["{{baseUrl}}"],
+							"path": [
+								"api",
+								"interventions",
+								"appointments",
+								"patient",
+								"{{testPatientId}}",
+								"past"
+							]
+						},
+						"description": "Get past appointments for a patient"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Patient Upcoming Appointments",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Get patient upcoming appointments should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/interventions/appointments/patient/{{testPatientId}}/upcoming",
+							"host": ["{{baseUrl}}"],
+							"path": [
+								"api",
+								"interventions",
+								"appointments",
+								"patient",
+								"{{testPatientId}}",
+								"upcoming"
+							]
+						},
+						"description": "Get upcoming appointments for a patient"
+					},
+					"response": []
+				},
+				{
+					"name": "Reschedule Appointment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Reschedule appointment should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"newDate\": \"2025-06-26T11:00:00.000Z\",\n    \"notes\": \"Rescheduled appointment\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/interventions/appointments/{{testInterventionId}}",
+							"host": ["{{baseUrl}}"],
+							"path": [
+								"api",
+								"interventions",
+								"appointments",
+								"{{testInterventionId}}"
+							]
+						},
+						"description": "Reschedule an appointment"
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel Appointment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Cancel appointment should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"reason\": \"Patient requested cancellation\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/interventions/appointments/{{testInterventionId}}/cancel",
+							"host": ["{{baseUrl}}"],
+							"path": [
+								"api",
+								"interventions",
+								"appointments",
+								"{{testInterventionId}}",
+								"cancel"
+							]
+						},
+						"description": "Cancel an appointment"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Intervention",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Delete intervention should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/interventions/{{newInterventionId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "interventions", "{{newInterventionId}}"]
+						},
+						"description": "Delete an intervention"
+					},
+					"response": []
+				}
+			],
+			"description": "Intervention and appointment management endpoints"
+		},
+		{
+			"name": "Intervention Types",
+			"item": [
+				{
+					"name": "Get All Intervention Types",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Get all intervention types should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test('Response should be an array of intervention types', function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.interventionTypes).to.be.an('array');",
+									"});",
+									"",
+									"if (pm.response.code === 200) {",
+									"    var jsonData = pm.response.json();",
+									"    if (jsonData.length > 0) {",
+									"        pm.collectionVariables.set('testInterventionTypeId', jsonData[0].interventionTypes._id);",
+									"    }",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/intervention-types",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "intervention-types"]
+						},
+						"description": "Get all intervention types"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Intervention Type by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Get intervention type by ID should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/intervention-types/{{testInterventionTypeId}}",
+							"host": ["{{baseUrl}}"],
+							"path": [
+								"api",
+								"intervention-types",
+								"{{testInterventionTypeId}}"
+							]
+						},
+						"description": "Get a specific intervention type by ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Intervention Type",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Create intervention type should return 201 Created', function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"if (pm.response.code === 201) {",
+									"    var jsonData = pm.response.json();",
+									"    pm.collectionVariables.set('newInterventionTypeId', jsonData._id);",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test intervention type\",\n    \"description\": \"Test intervention type\",\n    \"duration\": 90,\n    \"category\": \"Surgery\",\n    \"cost\": 1200.00,\n    \"requirements\": [\"X-ray\", \"Medical clearance\"]\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/intervention-types",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "intervention-types"]
+						},
+						"description": "Create a new intervention type"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Intervention Type",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Update Intervention Type should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"price\": 1300.00,\n    \"description\": \"Updated description for dental implant procedure\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/intervention-types/{{testInterventionTypeId}}",
+							"host": ["{{baseUrl}}"],
+							"path": [
+								"api",
+								"intervention-types",
+								"{{testInterventionTypeId}}"
+							]
+						},
+						"description": "Update intervention type information"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Intervention Types by Category",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Get Intervention Types by Category should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/intervention-types/category/Cleaning",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "intervention-types", "category", "Cleaning"]
+						},
+						"description": "Get intervention types by category"
+					},
+					"response": []
+				}
+			],
+			"description": "Intervention type management endpoints"
+		},
+		{
+			"name": "Allergies",
+			"item": [
+				{
+					"name": "Get All Allergies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Get all allergies should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test('Response should be an array of allergies', function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.data).to.be.an('array');",
+									"});",
+									"",
+									"if (pm.response.code === 200) {",
+									"    var jsonData = pm.response.json();",
+									"    if (jsonData.length > 0) {",
+									"        pm.collectionVariables.set('testAllergyId', jsonData[0].data._id);",
+									"    }",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/allergies",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "allergies"]
+						},
+						"description": "Get all allergies from the catalogue"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Allergy by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Get Allergy by ID should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/allergies/{{testAllergyId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "allergies", "{{testAllergyId}}"]
+						},
+						"description": "Get a specific allergy by ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Allergy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Create Allergy should return 201 Created', function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"if (pm.response.code === 201) {",
+									"    var jsonData = pm.response.json();",
+									"    pm.collectionVariables.set('newAllergyId', jsonData._id);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Latex Allergy\",\n    \"code\": \"LATEX001\",\n    \"description\": \"Allergic reaction to latex materials\",\n    \"symptoms\": [\"Skin rash\", \"Swelling\", \"Difficulty breathing\"],\n    \"category\": \"Material\",\n    \"severity\": \"High\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/allergies",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "allergies"]
+						},
+						"description": "Create a new allergy in the catalogue"
+					},
+					"response": []
+				},
+				{
+					"name": "Add Allergy to Patient",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Add Allergy to Patient should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"allergyCode\": \"ALLRG-001\",\n    \"status\": \"active\",\n    \"criticality\": \"high\",\n    \"notes\": \"Severe reaction to penicillin\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/patients/{{testPatientId}}/allergies",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "patients", "{{testPatientId}}", "allergies"]
+						},
+						"description": "Add an allergy to a patient"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Allergy by Code",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Get Allergy by Code should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/allergies/code/LATEX001",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "allergies", "code", "LATEX001"]
+						},
+						"description": "Get allergy by code"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Allergies by Type",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Get Allergies by Type should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/allergies/type/Medication",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "allergies", "type", "Medication"]
+						},
+						"description": "Get allergies by type/category"
+					},
+					"response": []
+				}
+			],
+			"description": "Allergy catalogue management endpoints"
+		},
+		{
+			"name": "Health Check",
+			"item": [
+				{
+					"name": "API Health Check",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('API health check should return 200 OK', function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test('Response should contain API message', function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('message');",
+									"    pm.expect(jsonData.message).to.include('Dental Clinic API');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", ""]
+						},
+						"description": "Check if API is running"
+					},
+					"response": []
+				}
+			],
+			"description": "API health and status endpoints"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"// Pre-request script for the entire collection",
+					"console.log('Running request to:', pm.request.url);",
+					"",
+					"// Check if authentication token exists for protected endpoints",
+					"const authToken = pm.collectionVariables.get('authToken');",
+					"if (!authToken && pm.request.url.getPath().includes('/api/') && !pm.request.url.getPath().includes('/login')) {",
+					"    console.warn('Warning: No auth token found. Make sure to login first.');",
+					"}",
+					"",
+					"// Log current variables for debugging",
+					"console.log('Auth Token:', authToken ? 'Present' : 'Missing');",
+					"console.log('User Role:', pm.collectionVariables.get('userRole'));"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"// Global test script",
+					"pm.test('Response time is less than 5000ms', function () {",
+					"    pm.expect(pm.response.responseTime).to.be.below(5000);",
+					"});",
+					"",
+					"pm.test('Response should not have server errors (5xx)', function () {",
+					"    pm.expect(pm.response.code).to.be.below(500);",
+					"});",
+					"",
+					"// Only check content type for successful responses",
+					"if (pm.response.code >= 200 && pm.response.code < 300) {",
+					"    pm.test('Successful response has proper content type', function () {",
+					"        pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');",
+					"    });",
+					"}",
+					"",
+					"// Log response details for debugging",
+					"console.log('Response status:', pm.response.status);",
+					"console.log('Response code:', pm.response.code);"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://localhost:1444",
+			"type": "string"
+		},
+		{
+			"key": "authToken",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "userId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "userRole",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "currentUserId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "testUserId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "testPatientId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "newPatientId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "testDoctorId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "newDoctorId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "testInterventionId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "newInterventionId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "testInterventionTypeId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "newInterventionTypeId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "testAllergyId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "newAllergyId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "allergyRelationId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "testUserToBeDeletedId",
+			"value": ""
+		}
+	]
+}

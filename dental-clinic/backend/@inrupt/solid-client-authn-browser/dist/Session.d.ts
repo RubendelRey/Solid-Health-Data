@@ -1,0 +1,209 @@
+/// <reference types="node" />
+/**
+ * @hidden
+ */
+import type { ILoginInputOptions, ISessionInfo, IStorage, IHasSessionEventListener, ISessionEventListener, ILogoutOptions } from "@inrupt/solid-client-authn-core";
+import type { fetch } from "@inrupt/universal-fetch";
+import EventEmitter from "events";
+import type ClientAuthentication from "./ClientAuthentication";
+export interface ISessionOptions {
+    /**
+     * A private storage, unreachable to other scripts on the page. Typically in-memory.
+     */
+    secureStorage: IStorage;
+    /**
+     * A storage where non-sensitive information may be stored, potentially longer-lived than the secure storage.
+     */
+    insecureStorage: IStorage;
+    /**
+     * Details about the current session
+     */
+    sessionInfo: ISessionInfo;
+    /**
+     * An instance of the library core. Typically obtained using `getClientAuthenticationWithDependencies`.
+     */
+    clientAuthentication: ClientAuthentication;
+}
+export interface IHandleIncomingRedirectOptions {
+    /**
+     * If the user has signed in before, setting this to `true` will automatically
+     * redirect them to their Solid Identity Provider, which will then attempt to
+     * re-activate the session and send the user back to your app without
+     * requiring user interaction.
+     * If your app's access has not expired yet and re-activation completed
+     * successfully, a `sessionRestore` event will be fired with the URL the user
+     * was at before they were redirected to their Solid Identity Provider.
+     * {@see onSessionRestore}
+     */
+    restorePreviousSession?: boolean;
+    /**
+     * Inrupt's Enterprise Solid Server can set a cookie to allow the browser to
+     * access private resources on a Pod. In order to mitigate the logout-on-refresh
+     * issue on the short term, the server also implemented a session endpoint
+     * enabling the client app to know whether the cookie is set. When a user
+     * logs in to a server that has that capability enabled, applications that set
+     * this option to `true` will be able to make use of it.
+     *
+     * If your app supports the newest session restore approach, and `restorePreviousSession`
+     * is set to true, this option is automatically set to false, but your app will
+     * not be logged out when reloaded.
+     *
+     * `useEssSession` defaults to false and will be removed in the future; to
+     * preserve sessions across page reloads, use of `restorePreviousSession` is
+     * recommended.
+     *
+     * @deprecated unreleased
+     */
+    useEssSession?: boolean;
+    /**
+     * The URL of the page handling the redirect, including the query
+     * parameters — these contain the information to process the login.
+     * Note: as a convenience, if no URL value is specified here, we default to
+     * using the browser's current location.
+     */
+    url?: string;
+}
+export declare function silentlyAuthenticate(sessionId: string, clientAuthn: ClientAuthentication, session: Session): Promise<boolean>;
+/**
+ * A {@link Session} object represents a user's session on an application. The session holds state, as it stores information enabling acces to private resources after login for instance.
+ */
+export declare class Session extends EventEmitter implements IHasSessionEventListener {
+    /**
+     * Information regarding the current session.
+     */
+    readonly info: ISessionInfo;
+    /**
+     * Session attribute exposing the EventEmitter interface, to listen on session
+     * events such as login, logout, etc.
+     * @since 1.15.0
+     */
+    readonly events: ISessionEventListener;
+    private clientAuthentication;
+    private tokenRequestInProgress;
+    /**
+     * Session object constructor. Typically called as follows:
+     *
+     * ```typescript
+     * const session = new Session();
+     * ```
+     *
+     * See also [getDefaultSession](https://docs.inrupt.com/developer-tools/api/javascript/solid-client-authn-browser/functions.html#getdefaultsession).
+     *
+     * @param sessionOptions The options enabling the correct instantiation of
+     * the session. Either both storages or clientAuthentication are required. For
+     * more information, see {@link ISessionOptions}.
+     * @param sessionId A string uniquely identifying the session.
+     *
+     */
+    constructor(sessionOptions?: Partial<ISessionOptions>, sessionId?: string | undefined);
+    /**
+     * Triggers the login process. Note that this method will redirect the user away from your app.
+     *
+     * @param options Parameter to customize the login behaviour. In particular, two options are mandatory: `options.oidcIssuer`, the user's identity provider, and `options.redirectUrl`, the URL to which the user will be redirected after logging in their identity provider.
+     * @returns This method should redirect the user away from the app: it does not return anything. The login process is completed by {@linkcode handleIncomingRedirect}.
+     */
+    login: (options: ILoginInputOptions) => Promise<void>;
+    /**
+     * Fetches data using available login information. If the user is not logged in, this will behave as a regular `fetch`. The signature of this method is identical to the [canonical `fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API).
+     *
+     * @param url The URL from which data should be fetched.
+     * @param init Optional parameters customizing the request, by specifying an HTTP method, headers, a body, etc. Follows the [WHATWG Fetch Standard](https://fetch.spec.whatwg.org/).
+     */
+    fetch: typeof fetch;
+    /**
+     * An internal logout function, to control whether or not the logout signal
+     * should be sent, i.e. if the logout was user-initiated or is the result of
+     * an external event.
+     *
+     * @hidden
+     */
+    private internalLogout;
+    /**
+     * Logs the user out of the application.
+     *
+     * There are 2 types of logout supported by this library,
+     * `app` logout and `idp` logout.
+     *
+     * App logout will log the user out within the application
+     * by clearing any session data from the browser. It does
+     * not log the user out of their Solid identity provider,
+     * and should not redirect the user away.
+     * App logout can be performed as follows:
+     * ```typescript
+     * await session.logout({ logoutType: 'app' });
+     * ```
+     *
+     * IDP logout will log the user out of their Solid identity provider,
+     * and will redirect the user away from the application to do so. In order
+     * for users to be redirected back to `postLogoutUrl` you MUST include the
+     * `postLogoutUrl` value in the `post_logout_redirect_uris` field in the
+     * [Client ID Document](https://docs.inrupt.com/ess/latest/security/authentication/#client-identifier-client-id).
+     * IDP logout can be performed as follows:
+     * ```typescript
+     * await session.logout({
+     *  logoutType: 'idp',
+     *  // An optional URL to redirect to after logout has completed;
+     *  // this MUST match a logout URL listed in the Client ID Document
+     *  // of the application that is logged in.
+     *  // If the application is logged in with a Client ID that is not
+     *  // a URI dereferencing to a Client ID Document then users will
+     *  // not be redirected back to the `postLogoutUrl` after logout.
+     *  postLogoutUrl: 'https://example.com/logout',
+     *  // An optional value to be included in the query parameters
+     *  // when the IDP provider redirects the user to the postLogoutRedirectUrl.
+     *  state: "my-state"
+     * });
+     * ```
+     */
+    logout: (options?: ILogoutOptions) => Promise<void>;
+    /**
+     * Completes the login process by processing the information provided by the
+     * Solid identity provider through redirect.
+     *
+     * @param options See {@see IHandleIncomingRedirectOptions}.
+     */
+    handleIncomingRedirect: (inputOptions?: string | IHandleIncomingRedirectOptions) => Promise<ISessionInfo | undefined>;
+    /**
+     * Register a callback function to be called when a user completes login.
+     *
+     * The callback is called when {@link handleIncomingRedirect} completes successfully.
+     *
+     * @param callback The function called when a user completes login.
+     * @deprecated Prefer session.events.on(EVENTS.LOGIN, callback)
+     */
+    onLogin(callback: () => unknown): void;
+    /**
+     * Register a callback function to be called when a user logs out:
+     *
+     * @param callback The function called when a user completes logout.
+     * @deprecated Prefer session.events.on(EVENTS.LOGOUT, callback)
+     */
+    onLogout(callback: () => unknown): void;
+    /**
+     * Register a callback function to be called when a user logs out:
+     *
+     * @param callback The function called when an error occurs.
+     * @since 1.11.0
+     * @deprecated Prefer session.events.on(EVENTS.ERROR, callback)
+     */
+    onError(callback: (error: string | null, errorDescription?: string | null) => unknown): void;
+    /**
+     * Register a callback function to be called when a session is restored.
+     *
+     * Note: the callback will be called with the saved value of the 'current URL'
+     * at the time the session was restored.
+     *
+     * @param callback The function called when a user's already logged-in session is restored, e.g., after a silent authentication is completed after a page refresh.
+     * @deprecated Prefer session.events.on(EVENTS.SESSION_RESTORED, callback)
+     */
+    onSessionRestore(callback: (currentUrl: string) => unknown): void;
+    /**
+     * Register a callback that runs when the session expires and can no longer
+     * make authenticated requests, but following a user logout.
+     * @param callback The function that runs on session expiration.
+     * @since 1.11.0
+     * @deprecated Prefer session.events.on(EVENTS.SESSION_EXPIRED, callback)
+     */
+    onSessionExpiration(callback: () => unknown): void;
+    private setSessionInfo;
+}

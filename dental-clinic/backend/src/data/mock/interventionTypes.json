@@ -1,0 +1,100 @@
+[
+	{
+		"name": "Dental Examination",
+		"description": "Regular check-up and examination of teeth and gums",
+		"cost": 50,
+		"duration": 30,
+		"category": "diagnostic"
+	},
+	{
+		"name": "Teeth Cleaning",
+		"description": "Professional cleaning to remove plaque and tartar",
+		"cost": 80,
+		"duration": 45,
+		"category": "preventive"
+	},
+	{
+		"name": "Cavity Filling",
+		"description": "Filling a cavity with composite resin material",
+		"cost": 120,
+		"duration": 60,
+		"category": "restorative"
+	},
+	{
+		"name": "Root Canal",
+		"description": "Treatment to repair and save a badly damaged or infected tooth",
+		"cost": 300,
+		"duration": 90,
+		"category": "endodontic"
+	},
+	{
+		"name": "Tooth Extraction",
+		"description": "Removal of a tooth from its socket in the bone",
+		"cost": 150,
+		"duration": 45,
+		"category": "oral surgery"
+	},
+	{
+		"name": "Crown Placement",
+		"description": "Placement of a crown to restore a damaged or missing tooth",
+		"cost": 500,
+		"duration": 90,
+		"category": "restorative"
+	},
+	{
+		"name": "Dental Implant",
+		"description": "Surgical placement of a dental implant",
+		"cost": 1200,
+		"duration": 120,
+		"category": "oral surgery"
+	},
+	{
+		"name": "Dental Bridge",
+		"description": "Installation of a dental bridge to replace missing teeth",
+		"cost": 800,
+		"duration": 90,
+		"category": "restorative"
+	},
+	{
+		"name": "Teeth Whitening",
+		"description": "Professional whitening treatment to improve tooth color",
+		"cost": 250,
+		"duration": 60,
+		"category": "cosmetic"
+	},
+	{
+		"name": "Braces Fitting",
+		"description": "Initial fitting of orthodontic braces",
+		"cost": 1500,
+		"duration": 90,
+		"category": "orthodontic"
+	},
+	{
+		"name": "Braces Adjustment",
+		"description": "Regular adjustment of orthodontic braces",
+		"cost": 100,
+		"duration": 30,
+		"category": "orthodontic"
+	},
+	{
+		"name": "Wisdom Tooth Extraction",
+		"description": "Surgical extraction of wisdom teeth",
+		"cost": 400,
+		"duration": 90,
+		"category": "oral surgery"
+	},
+	{
+		"name": "Fluoride Treatment",
+		"description": "Application of fluoride to strengthen tooth enamel",
+		"cost": 40,
+		"duration": 15,
+		"category": "preventive"
+	},
+	{
+		"name": "Denture Fitting",
+		"description": "Fitting of full or partial dentures",
+		"cost": 600,
+		"duration": 60,
+		"category": "prosthodontic"
+	}
+]

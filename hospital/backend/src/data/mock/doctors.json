@@ -1,0 +1,158 @@
+[
+	{
+		"email": "doctor1@hospital.com",
+		"name": [
+			{
+				"use": "official",
+				"family": "Smith",
+				"given": ["John"],
+				"prefix": ["Dr."]
+			}
+		],
+		"telecom": [
+			{
+				"system": "phone",
+				"value": "+1234567800",
+				"use": "work"
+			},
+			{
+				"system": "email",
+				"value": "doctor1@hospital.com",
+				"use": "work"
+			}
+		],
+		"address": [
+			{
+				"use": "work",
+				"type": "physical",
+				"text": "Hospital Main Building, Room 201",
+				"line": ["Hospital Main Building", "Room 201"],
+				"city": "Anytown",
+				"state": "ST",
+				"postalCode": "12345",
+				"country": "US"
+			}
+		],
+		"gender": "male",
+		"birthDate": "1975-08-12",
+		"specialty": [
+			{
+				"coding": [
+					{
+						"system": "http://snomed.info/sct",
+						"code": "394814009",
+						"display": "General practice"
+					}
+				]
+			}
+		],
+		"qualification": [
+			{
+				"identifier": [
+					{
+						"use": "official",
+						"system": "http://hospital.com/license",
+						"value": "MD001"
+					}
+				],
+				"code": {
+					"coding": [
+						{
+							"system": "http://terminology.hl7.org/CodeSystem/v2-0360",
+							"code": "MD",
+							"display": "Doctor of Medicine"
+						}
+					]
+				},
+				"issuer": {
+					"display": "State Medical Board"
+				}
+			}
+		],
+		"workingHours": {
+			"monday": { "start": "09:00", "end": "17:00" },
+			"tuesday": { "start": "09:00", "end": "17:00" },
+			"wednesday": { "start": "09:00", "end": "17:00" },
+			"thursday": { "start": "09:00", "end": "17:00" },
+			"friday": { "start": "09:00", "end": "15:00" }
+		}
+	},
+	{
+		"email": "doctor2@hospital.com",
+		"name": [
+			{
+				"use": "official",
+				"family": "Johnson",
+				"given": ["Sarah"],
+				"prefix": ["Dr."]
+			}
+		],
+		"telecom": [
+			{
+				"system": "phone",
+				"value": "+1234567801",
+				"use": "work"
+			},
+			{
+				"system": "email",
+				"value": "doctor2@hospital.com",
+				"use": "work"
+			}
+		],
+		"address": [
+			{
+				"use": "work",
+				"type": "physical",
+				"text": "Hospital Main Building, Room 203",
+				"line": ["Hospital Main Building", "Room 203"],
+				"city": "Anytown",
+				"state": "ST",
+				"postalCode": "12345",
+				"country": "US"
+			}
+		],
+		"gender": "female",
+		"birthDate": "1980-02-28",
+		"specialty": [
+			{
+				"coding": [
+					{
+						"system": "http://snomed.info/sct",
+						"code": "394579002",
+						"display": "Cardiology"
+					}
+				]
+			}
+		],
+		"qualification": [
+			{
+				"identifier": [
+					{
+						"use": "official",
+						"system": "http://hospital.com/license",
+						"value": "MD002"
+					}
+				],
+				"code": {
+					"coding": [
+						{
+							"system": "http://terminology.hl7.org/CodeSystem/v2-0360",
+							"code": "MD",
+							"display": "Doctor of Medicine"
+						}
+					]
+				},
+				"issuer": {
+					"display": "State Medical Board"
+				}
+			}
+		],
+		"workingHours": {
+			"monday": { "start": "08:00", "end": "16:00" },
+			"tuesday": { "start": "08:00", "end": "16:00" },
+			"wednesday": { "start": "08:00", "end": "16:00" },
+			"thursday": { "start": "08:00", "end": "16:00" },
+			"friday": { "start": "08:00", "end": "14:00" }
+		}
+	}
+]

@@ -1,0 +1,122 @@
+[
+	{
+		"code": "ALLRG-001",
+		"name": "Penicillin",
+		"type": "Medication",
+		"description": "Common antibiotic that causes allergic reactions in some patients"
+	},
+	{
+		"code": "ALLRG-002",
+		"name": "Latex",
+		"type": "Material",
+		"description": "Material used in gloves and some dental equipment"
+	},
+	{
+		"code": "ALLRG-003",
+		"name": "Local Anesthetics",
+		"type": "Medication",
+		"description": "Numbing medications used during dental procedures"
+	},
+	{
+		"code": "ALLRG-004",
+		"name": "Codeine",
+		"type": "Medication",
+		"description": "Pain medication that may cause allergic reactions"
+	},
+	{
+		"code": "ALLRG-005",
+		"name": "Aspirin",
+		"type": "Medication",
+		"description": "Common pain reliever that can trigger allergic responses"
+	},
+	{
+		"code": "ALLRG-006",
+		"name": "Ibuprofen",
+		"type": "Medication",
+		"description": "Anti-inflammatory medication used for pain relief"
+	},
+	{
+		"code": "ALLRG-007",
+		"name": "Sulfa Drugs",
+		"type": "Medication",
+		"description": "Antibiotics that can cause severe allergic reactions"
+	},
+	{
+		"code": "ALLRG-008",
+		"name": "Amoxicillin",
+		"type": "Medication",
+		"description": "Beta-lactam antibiotic commonly used for dental infections"
+	},
+	{
+		"code": "ALLRG-009",
+		"name": "Clindamycin",
+		"type": "Medication",
+		"description": "Antibiotic used for serious dental infections"
+	},
+	{
+		"code": "ALLRG-010",
+		"name": "Metronidazole",
+		"type": "Medication",
+		"description": "Antibiotic and antiprotozoal medication used for dental infections"
+	},
+	{
+		"code": "ALLRG-011",
+		"name": "Lidocaine",
+		"type": "Medication",
+		"description": "Local anesthetic commonly used in dental procedures"
+	},
+	{
+		"code": "ALLRG-012",
+		"name": "Nickel",
+		"type": "Material",
+		"description": "Metal used in some orthodontic appliances and dental work"
+	},
+	{
+		"code": "ALLRG-013",
+		"name": "Azithromycin",
+		"type": "Medication",
+		"description": "Macrolide antibiotic used for dental and oral infections"
+	},
+	{
+		"code": "ALLRG-014",
+		"name": "Erythromycin",
+		"type": "Medication",
+		"description": "Antibiotic used to treat dental infections"
+	},
+	{
+		"code": "ALLRG-015",
+		"name": "Tetracycline",
+		"type": "Medication",
+		"description": "Antibiotic that can cause tooth discoloration and allergic reactions"
+	},
+	{
+		"code": "ALLRG-016",
+		"name": "Fluoride",
+		"type": "Material",
+		"description": "Used in dental treatments and some patients may have sensitivity"
+	},
+	{
+		"code": "ALLRG-017",
+		"name": "Chlorhexidine",
+		"type": "Material",
+		"description": "Antiseptic used in mouthwashes and dental preparations"
+	},
+	{
+		"code": "ALLRG-018",
+		"name": "Shellfish",
+		"type": "Food",
+		"description": "May cause cross-reactions with certain dental materials"
+	},
+	{
+		"code": "ALLRG-019",
+		"name": "Pollen",
+		"type": "Environmental",
+		"description": "Seasonal allergen that may increase sensitivity during dental work"
+	},
+	{
+		"code": "ALLRG-020",
+		"name": "Cephalexin",
+		"type": "Medication",
+		"description": "Cephalosporin antibiotic used for bacterial infections"
+	}
+]

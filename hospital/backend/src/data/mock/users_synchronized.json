@@ -1,0 +1,191 @@
+[
+	{
+		"email": "admin@hospital.com",
+		"password": "password",
+		"role": "administrator",
+		"profile": {
+			"firstName": "Hospital",
+			"lastName": "Administrator"
+		}
+	},
+	{
+		"email": "doctor1@hospital.com",
+		"password": "password",
+		"role": "doctor",
+		"profile": {
+			"firstName": "John",
+			"lastName": "Smith"
+		}
+	},
+	{
+		"email": "doctor2@hospital.com",
+		"password": "password",
+		"role": "doctor",
+		"profile": {
+			"firstName": "Sarah",
+			"lastName": "Johnson"
+		}
+	},
+	{
+		"email": "patient1@hospital.com",
+		"password": "password",
+		"role": "patient",
+		"profile": {
+			"firstName": "Jane",
+			"lastName": "Doe"
+		}
+	},
+	{
+		"email": "patient2@hospital.com",
+		"password": "password",
+		"role": "patient",
+		"profile": {
+			"firstName": "Michael",
+			"lastName": "Brown"
+		}
+	},
+	{
+		"email": "patient3@hospital.com",
+		"password": "password",
+		"role": "patient",
+		"profile": {
+			"firstName": "Emily",
+			"lastName": "Davis"
+		}
+	},
+	{
+		"email": "carlos@example.com",
+		"password": "password",
+		"role": "patient",
+		"profile": {
+			"firstName": "Carlos",
+			"lastName": "García"
+		}
+	},
+	{
+		"email": "maria@example.com",
+		"password": "password",
+		"role": "patient",
+		"profile": {
+			"firstName": "María",
+			"lastName": "López"
+		}
+	},
+	{
+		"email": "juan@example.com",
+		"password": "password",
+		"role": "patient",
+		"profile": {
+			"firstName": "Juan",
+			"lastName": "Martínez"
+		}
+	},
+	{
+		"email": "ana@example.com",
+		"password": "password",
+		"role": "patient",
+		"profile": {
+			"firstName": "Ana",
+			"lastName": "Fernández"
+		}
+	},
+	{
+		"email": "pablo@example.com",
+		"password": "password",
+		"role": "patient",
+		"profile": {
+			"firstName": "Pablo",
+			"lastName": "Sánchez"
+		}
+	},
+	{
+		"email": "lucia@example.com",
+		"password": "password",
+		"role": "patient",
+		"profile": {
+			"firstName": "Lucía",
+			"lastName": "Gómez"
+		}
+	},
+	{
+		"email": "javier@example.com",
+		"password": "password",
+		"role": "patient",
+		"profile": {
+			"firstName": "Javier",
+			"lastName": "Torres"
+		}
+	},
+	{
+		"email": "elena@example.com",
+		"password": "password",
+		"role": "patient",
+		"profile": {
+			"firstName": "Elena",
+			"lastName": "Ruiz"
+		}
+	},
+	{
+		"email": "miguel@example.com",
+		"password": "password",
+		"role": "patient",
+		"profile": {
+			"firstName": "Miguel",
+			"lastName": "Navarro"
+		}
+	},
+	{
+		"email": "carmen@example.com",
+		"password": "password",
+		"role": "patient",
+		"profile": {
+			"firstName": "Carmen",
+			"lastName": "Moreno"
+		}
+	},
+	{
+		"email": "david@example.com",
+		"password": "password",
+		"role": "patient",
+		"profile": {
+			"firstName": "David",
+			"lastName": "Jiménez"
+		}
+	},
+	{
+		"email": "sara@example.com",
+		"password": "password",
+		"role": "patient",
+		"profile": {
+			"firstName": "Sara",
+			"lastName": "Hernández"
+		}
+	},
+	{
+		"email": "jorge@example.com",
+		"password": "password",
+		"role": "patient",
+		"profile": {
+			"firstName": "Jorge",
+			"lastName": "Díaz"
+		}
+	},
+	{
+		"email": "laura@example.com",
+		"password": "password",
+		"role": "patient",
+		"profile": {
+			"firstName": "Laura",
+			"lastName": "Álvarez"
+		}
+	},
+	{
+		"email": "roberto@example.com",
+		"password": "password",
+		"role": "patient",
+		"profile": {
+			"firstName": "Roberto",
+			"lastName": "Muñoz"
+		}
+	}
+]

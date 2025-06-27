@@ -1,0 +1,95 @@
+version: "3.8"
+
+services:
+  dental-clinic-db:
+    image: mongo:7.0
+    container_name: dental-clinic-mongodb
+    ports:
+      - "1445:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: dental-clinic
+
+  dental-clinic-backend:
+    build:
+      context: ./dental-clinic/backend
+      dockerfile: Dockerfile
+    container_name: dental-clinic-api
+    ports:
+      - "1444:1444"
+    environment:
+      PORT: 1444
+      BACKEND_HOST: localhost
+      BACKEND_PORT: 1444
+      FRONTEND_HOST: localhost
+      FRONTEND_PORT: 1443
+      MONGO_URI: mongodb://admin:password@dental-clinic-db:27017/
+      MONGO_DB_NAME: dental-clinic
+    depends_on:
+      - dental-clinic-db
+
+  dental-clinic-frontend:
+    build:
+      context: ./dental-clinic/frontend
+      dockerfile: Dockerfile
+    container_name: dental-clinic-web
+    ports:
+      - "1443:1443"
+    environment:
+      API_HOST: dental-clinic-backend
+      API_PORT: 1444
+      NODE_TLS_REJECT_UNAUTHORIZED: "0"
+    depends_on:
+      - dental-clinic-backend
+
+  hospital-db:
+    image: mongo:7.0
+    container_name: hospital-mongodb
+    ports:
+      - "2445:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: hospital
+
+  hospital-backend:
+    build:
+      context: ./hospital/backend
+      dockerfile: Dockerfile
+    container_name: hospital-api
+    ports:
+      - "2444:2444"
+    environment:
+      PORT: 2444
+      BACKEND_HOST: localhost
+      BACKEND_PORT: 2444
+      FRONTEND_HOST: localhost
+      FRONTEND_PORT: 2443
+      MONGO_URI: mongodb://admin:password@hospital-db:27017/
+      MONGO_DB_NAME: hospital
+    depends_on:
+      - hospital-db
+
+  hospital-frontend:
+    build:
+      context: ./hospital/frontend
+      dockerfile: Dockerfile
+    container_name: hospital-web
+    ports:
+      - "2443:2443"
+    environment:
+      API_HOST: hospital-backend
+      API_PORT: 2444
+      API_BASE_PATH: /api
+      NODE_TLS_REJECT_UNAUTHORIZED: "0"
+    depends_on:
+      - hospital-backend
+
+  pod-browser:
+    build:
+      context: ./pod-browser
+      dockerfile: Dockerfile
+    container_name: pod-browser-web
+    ports:
+      - "3443:3443"

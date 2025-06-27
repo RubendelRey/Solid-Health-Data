@@ -1,0 +1,842 @@
+[
+	{
+		"email": "patient1@hospital.com",
+		"name": [
+			{
+				"use": "official",
+				"family": "Doe",
+				"given": ["Jane"]
+			}
+		],
+		"telecom": [
+			{
+				"system": "phone",
+				"value": "+1234567890",
+				"use": "home"
+			},
+			{
+				"system": "email",
+				"value": "patient1@hospital.com",
+				"use": "home"
+			}
+		],
+		"gender": "female",
+		"birthDate": "1985-05-15",
+		"address": [
+			{
+				"use": "home",
+				"type": "physical",
+				"text": "123 Main St, Anytown, ST 12345",
+				"line": ["123 Main St"],
+				"city": "Anytown",
+				"state": "ST",
+				"postalCode": "12345",
+				"country": "US"
+			}
+		],
+		"maritalStatus": {
+			"coding": [
+				{
+					"system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+					"code": "M",
+					"display": "Married"
+				}
+			]
+		},
+		"emergencyContact": [
+			{
+				"relationship": [
+					{
+						"coding": [
+							{
+								"system": "http://terminology.hl7.org/CodeSystem/v2-0131",
+								"code": "C",
+								"display": "Emergency Contact"
+							}
+						]
+					}
+				],
+				"name": {
+					"family": "Doe",
+					"given": ["John"]
+				},
+				"telecom": [
+					{
+						"system": "phone",
+						"value": "+1234567891"
+					}
+				]
+			}
+		]
+	},
+	{
+		"email": "patient2@hospital.com",
+		"name": [
+			{
+				"use": "official",
+				"family": "Brown",
+				"given": ["Michael"]
+			}
+		],
+		"telecom": [
+			{
+				"system": "phone",
+				"value": "+1234567892",
+				"use": "home"
+			},
+			{
+				"system": "email",
+				"value": "patient2@hospital.com",
+				"use": "home"
+			}
+		],
+		"gender": "male",
+		"birthDate": "1978-11-22",
+		"address": [
+			{
+				"use": "home",
+				"type": "physical",
+				"text": "456 Oak Ave, Anytown, ST 12345",
+				"line": ["456 Oak Ave"],
+				"city": "Anytown",
+				"state": "ST",
+				"postalCode": "12345",
+				"country": "US"
+			}
+		],
+		"maritalStatus": {
+			"coding": [
+				{
+					"system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+					"code": "S",
+					"display": "Single"
+				}
+			]
+		}
+	},
+	{
+		"email": "patient3@hospital.com",
+		"name": [
+			{
+				"use": "official",
+				"family": "Davis",
+				"given": ["Emily"]
+			}
+		],
+		"telecom": [
+			{
+				"system": "phone",
+				"value": "+1234567893",
+				"use": "home"
+			},
+			{
+				"system": "email",
+				"value": "patient3@hospital.com",
+				"use": "home"
+			}
+		],
+		"gender": "female",
+		"birthDate": "1992-03-08",
+		"address": [
+			{
+				"use": "home",
+				"type": "physical",
+				"text": "789 Pine St, Anytown, ST 12345",
+				"line": ["789 Pine St"],
+				"city": "Anytown",
+				"state": "ST",
+				"postalCode": "12345",
+				"country": "US"
+			}
+		],
+		"maritalStatus": {
+			"coding": [
+				{
+					"system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+					"code": "S",
+					"display": "Single"
+				}
+			]
+		}
+	},
+	{
+		"email": "carlos@example.com",
+		"name": [
+			{
+				"use": "official",
+				"family": "García",
+				"given": ["Carlos"]
+			}
+		],
+		"telecom": [
+			{
+				"system": "phone",
+				"value": "666111222",
+				"use": "home"
+			},
+			{
+				"system": "email",
+				"value": "carlos@example.com",
+				"use": "home"
+			}
+		],
+		"gender": "male",
+		"birthDate": "1985-06-15",
+		"address": [
+			{
+				"use": "home",
+				"type": "physical",
+				"text": "Calle Mayor, 10, Madrid, 28001",
+				"line": ["Calle Mayor, 10"],
+				"city": "Madrid",
+				"state": "Madrid",
+				"postalCode": "28001",
+				"country": "Spain"
+			}
+		],
+		"maritalStatus": {
+			"coding": [
+				{
+					"system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+					"code": "UNK",
+					"display": "Unknown"
+				}
+			]
+		}
+	},
+	{
+		"email": "maria@example.com",
+		"name": [
+			{
+				"use": "official",
+				"family": "López",
+				"given": ["María"]
+			}
+		],
+		"telecom": [
+			{
+				"system": "phone",
+				"value": "666333444",
+				"use": "home"
+			},
+			{
+				"system": "phone",
+				"value": "911223344",
+				"use": "home"
+			},
+			{
+				"system": "email",
+				"value": "maria@example.com",
+				"use": "home"
+			}
+		],
+		"gender": "female",
+		"birthDate": "1990-09-22",
+		"address": [
+			{
+				"use": "home",
+				"type": "physical",
+				"text": "Avenida Libertad, 25, Barcelona, 08001",
+				"line": ["Avenida Libertad, 25"],
+				"city": "Barcelona",
+				"state": "Barcelona",
+				"postalCode": "08001",
+				"country": "Spain"
+			}
+		],
+		"maritalStatus": {
+			"coding": [
+				{
+					"system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+					"code": "UNK",
+					"display": "Unknown"
+				}
+			]
+		}
+	},
+	{
+		"email": "juan@example.com",
+		"name": [
+			{
+				"use": "official",
+				"family": "Martínez",
+				"given": ["Juan"]
+			}
+		],
+		"telecom": [
+			{
+				"system": "phone",
+				"value": "699887766",
+				"use": "home"
+			},
+			{
+				"system": "email",
+				"value": "juan@example.com",
+				"use": "home"
+			}
+		],
+		"gender": "male",
+		"birthDate": "1978-04-10",
+		"address": [
+			{
+				"use": "home",
+				"type": "physical",
+				"text": "Plaza España, 5, Sevilla, 41001",
+				"line": ["Plaza España, 5"],
+				"city": "Sevilla",
+				"state": "Sevilla",
+				"postalCode": "41001",
+				"country": "Spain"
+			}
+		],
+		"maritalStatus": {
+			"coding": [
+				{
+					"system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+					"code": "UNK",
+					"display": "Unknown"
+				}
+			]
+		}
+	},
+	{
+		"email": "ana@example.com",
+		"name": [
+			{
+				"use": "official",
+				"family": "Fernández",
+				"given": ["Ana"]
+			}
+		],
+		"telecom": [
+			{
+				"system": "phone",
+				"value": "633221100",
+				"use": "home"
+			},
+			{
+				"system": "email",
+				"value": "ana@example.com",
+				"use": "home"
+			}
+		],
+		"gender": "female",
+		"birthDate": "1995-08-18",
+		"address": [
+			{
+				"use": "home",
+				"type": "physical",
+				"text": "Calle Gran Vía, 42, Madrid, 28013",
+				"line": ["Calle Gran Vía, 42"],
+				"city": "Madrid",
+				"state": "Madrid",
+				"postalCode": "28013",
+				"country": "Spain"
+			}
+		],
+		"maritalStatus": {
+			"coding": [
+				{
+					"system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+					"code": "UNK",
+					"display": "Unknown"
+				}
+			]
+		}
+	},
+	{
+		"email": "pablo@example.com",
+		"name": [
+			{
+				"use": "official",
+				"family": "Sánchez",
+				"given": ["Pablo"]
+			}
+		],
+		"telecom": [
+			{
+				"system": "phone",
+				"value": "622334455",
+				"use": "home"
+			},
+			{
+				"system": "email",
+				"value": "pablo@example.com",
+				"use": "home"
+			}
+		],
+		"gender": "male",
+		"birthDate": "1982-12-05",
+		"address": [
+			{
+				"use": "home",
+				"type": "physical",
+				"text": "Avenida Diagonal, 300, Barcelona, 08013",
+				"line": ["Avenida Diagonal, 300"],
+				"city": "Barcelona",
+				"state": "Barcelona",
+				"postalCode": "08013",
+				"country": "Spain"
+			}
+		],
+		"maritalStatus": {
+			"coding": [
+				{
+					"system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+					"code": "UNK",
+					"display": "Unknown"
+				}
+			]
+		}
+	},
+	{
+		"email": "lucia@example.com",
+		"name": [
+			{
+				"use": "official",
+				"family": "Gómez",
+				"given": ["Lucía"]
+			}
+		],
+		"telecom": [
+			{
+				"system": "phone",
+				"value": "611223344",
+				"use": "home"
+			},
+			{
+				"system": "email",
+				"value": "lucia@example.com",
+				"use": "home"
+			}
+		],
+		"gender": "female",
+		"birthDate": "1988-03-30",
+		"address": [
+			{
+				"use": "home",
+				"type": "physical",
+				"text": "Calle Alcalá, 120, Madrid, 28009",
+				"line": ["Calle Alcalá, 120"],
+				"city": "Madrid",
+				"state": "Madrid",
+				"postalCode": "28009",
+				"country": "Spain"
+			}
+		],
+		"maritalStatus": {
+			"coding": [
+				{
+					"system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+					"code": "UNK",
+					"display": "Unknown"
+				}
+			]
+		}
+	},
+	{
+		"email": "javier@example.com",
+		"name": [
+			{
+				"use": "official",
+				"family": "Torres",
+				"given": ["Javier"]
+			}
+		],
+		"telecom": [
+			{
+				"system": "phone",
+				"value": "655443322",
+				"use": "home"
+			},
+			{
+				"system": "email",
+				"value": "javier@example.com",
+				"use": "home"
+			}
+		],
+		"gender": "male",
+		"birthDate": "1975-10-12",
+		"address": [
+			{
+				"use": "home",
+				"type": "physical",
+				"text": "Paseo de Gracia, 65, Barcelona, 08008",
+				"line": ["Paseo de Gracia, 65"],
+				"city": "Barcelona",
+				"state": "Barcelona",
+				"postalCode": "08008",
+				"country": "Spain"
+			}
+		],
+		"maritalStatus": {
+			"coding": [
+				{
+					"system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+					"code": "UNK",
+					"display": "Unknown"
+				}
+			]
+		}
+	},
+	{
+		"email": "elena@example.com",
+		"name": [
+			{
+				"use": "official",
+				"family": "Ruiz",
+				"given": ["Elena"]
+			}
+		],
+		"telecom": [
+			{
+				"system": "phone",
+				"value": "644332211",
+				"use": "home"
+			},
+			{
+				"system": "email",
+				"value": "elena@example.com",
+				"use": "home"
+			}
+		],
+		"gender": "female",
+		"birthDate": "1992-05-08",
+		"address": [
+			{
+				"use": "home",
+				"type": "physical",
+				"text": "Calle Serrano, 25, Madrid, 28001",
+				"line": ["Calle Serrano, 25"],
+				"city": "Madrid",
+				"state": "Madrid",
+				"postalCode": "28001",
+				"country": "Spain"
+			}
+		],
+		"maritalStatus": {
+			"coding": [
+				{
+					"system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+					"code": "UNK",
+					"display": "Unknown"
+				}
+			]
+		}
+	},
+	{
+		"email": "miguel@example.com",
+		"name": [
+			{
+				"use": "official",
+				"family": "Navarro",
+				"given": ["Miguel"]
+			}
+		],
+		"telecom": [
+			{
+				"system": "phone",
+				"value": "677665544",
+				"use": "home"
+			},
+			{
+				"system": "email",
+				"value": "miguel@example.com",
+				"use": "home"
+			}
+		],
+		"gender": "male",
+		"birthDate": "1970-07-25",
+		"address": [
+			{
+				"use": "home",
+				"type": "physical",
+				"text": "Rambla Catalunya, 88, Barcelona, 08008",
+				"line": ["Rambla Catalunya, 88"],
+				"city": "Barcelona",
+				"state": "Barcelona",
+				"postalCode": "08008",
+				"country": "Spain"
+			}
+		],
+		"maritalStatus": {
+			"coding": [
+				{
+					"system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+					"code": "UNK",
+					"display": "Unknown"
+				}
+			]
+		}
+	},
+	{
+		"email": "carmen@example.com",
+		"name": [
+			{
+				"use": "official",
+				"family": "Moreno",
+				"given": ["Carmen"]
+			}
+		],
+		"telecom": [
+			{
+				"system": "phone",
+				"value": "688776655",
+				"use": "home"
+			},
+			{
+				"system": "email",
+				"value": "carmen@example.com",
+				"use": "home"
+			}
+		],
+		"gender": "female",
+		"birthDate": "1980-02-20",
+		"address": [
+			{
+				"use": "home",
+				"type": "physical",
+				"text": "Avenida de la Constitución, 10, Sevilla, 41001",
+				"line": ["Avenida de la Constitución, 10"],
+				"city": "Sevilla",
+				"state": "Sevilla",
+				"postalCode": "41001",
+				"country": "Spain"
+			}
+		],
+		"maritalStatus": {
+			"coding": [
+				{
+					"system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+					"code": "UNK",
+					"display": "Unknown"
+				}
+			]
+		}
+	},
+	{
+		"email": "david@example.com",
+		"name": [
+			{
+				"use": "official",
+				"family": "Jiménez",
+				"given": ["David"]
+			}
+		],
+		"telecom": [
+			{
+				"system": "phone",
+				"value": "699008877",
+				"use": "home"
+			},
+			{
+				"system": "email",
+				"value": "david@example.com",
+				"use": "home"
+			}
+		],
+		"gender": "male",
+		"birthDate": "1987-11-15",
+		"address": [
+			{
+				"use": "home",
+				"type": "physical",
+				"text": "Calle Princesa, 30, Madrid, 28008",
+				"line": ["Calle Princesa, 30"],
+				"city": "Madrid",
+				"state": "Madrid",
+				"postalCode": "28008",
+				"country": "Spain"
+			}
+		],
+		"maritalStatus": {
+			"coding": [
+				{
+					"system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+					"code": "UNK",
+					"display": "Unknown"
+				}
+			]
+		}
+	},
+	{
+		"email": "sara@example.com",
+		"name": [
+			{
+				"use": "official",
+				"family": "Hernández",
+				"given": ["Sara"]
+			}
+		],
+		"telecom": [
+			{
+				"system": "phone",
+				"value": "600112233",
+				"use": "home"
+			},
+			{
+				"system": "email",
+				"value": "sara@example.com",
+				"use": "home"
+			}
+		],
+		"gender": "female",
+		"birthDate": "1993-06-03",
+		"address": [
+			{
+				"use": "home",
+				"type": "physical",
+				"text": "Paseo del Prado, 15, Madrid, 28014",
+				"line": ["Paseo del Prado, 15"],
+				"city": "Madrid",
+				"state": "Madrid",
+				"postalCode": "28014",
+				"country": "Spain"
+			}
+		],
+		"maritalStatus": {
+			"coding": [
+				{
+					"system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+					"code": "UNK",
+					"display": "Unknown"
+				}
+			]
+		}
+	},
+	{
+		"email": "jorge@example.com",
+		"name": [
+			{
+				"use": "official",
+				"family": "Díaz",
+				"given": ["Jorge"]
+			}
+		],
+		"telecom": [
+			{
+				"system": "phone",
+				"value": "611334455",
+				"use": "home"
+			},
+			{
+				"system": "email",
+				"value": "jorge@example.com",
+				"use": "home"
+			}
+		],
+		"gender": "male",
+		"birthDate": "1965-09-08",
+		"address": [
+			{
+				"use": "home",
+				"type": "physical",
+				"text": "Gran Vía, 45, Bilbao, 48001",
+				"line": ["Gran Vía, 45"],
+				"city": "Bilbao",
+				"state": "Vizcaya",
+				"postalCode": "48001",
+				"country": "Spain"
+			}
+		],
+		"maritalStatus": {
+			"coding": [
+				{
+					"system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+					"code": "UNK",
+					"display": "Unknown"
+				}
+			]
+		}
+	},
+	{
+		"email": "laura@example.com",
+		"name": [
+			{
+				"use": "official",
+				"family": "Álvarez",
+				"given": ["Laura"]
+			}
+		],
+		"telecom": [
+			{
+				"system": "phone",
+				"value": "622115599",
+				"use": "home"
+			},
+			{
+				"system": "email",
+				"value": "laura@example.com",
+				"use": "home"
+			}
+		],
+		"gender": "female",
+		"birthDate": "1990-04-12",
+		"address": [
+			{
+				"use": "home",
+				"type": "physical",
+				"text": "Calle Velázquez, 60, Madrid, 28001",
+				"line": ["Calle Velázquez, 60"],
+				"city": "Madrid",
+				"state": "Madrid",
+				"postalCode": "28001",
+				"country": "Spain"
+			}
+		],
+		"maritalStatus": {
+			"coding": [
+				{
+					"system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+					"code": "UNK",
+					"display": "Unknown"
+				}
+			]
+		}
+	},
+	{
+		"email": "roberto@example.com",
+		"name": [
+			{
+				"use": "official",
+				"family": "Muñoz",
+				"given": ["Roberto"]
+			}
+		],
+		"telecom": [
+			{
+				"system": "phone",
+				"value": "633445566",
+				"use": "home"
+			},
+			{
+				"system": "email",
+				"value": "roberto@example.com",
+				"use": "home"
+			}
+		],
+		"gender": "male",
+		"birthDate": "1972-08-27",
+		"address": [
+			{
+				"use": "home",
+				"type": "physical",
+				"text": "Avenida Meridiana, 350, Barcelona, 08027",
+				"line": ["Avenida Meridiana, 350"],
+				"city": "Barcelona",
+				"state": "Barcelona",
+				"postalCode": "08027",
+				"country": "Spain"
+			}
+		],
+		"maritalStatus": {
+			"coding": [
+				{
+					"system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+					"code": "UNK",
+					"display": "Unknown"
+				}
+			]
+		}
+	}
+]

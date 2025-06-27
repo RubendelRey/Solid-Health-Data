@@ -1,0 +1,51 @@
+PREFIX fhir: <http://hl7.org/fhir/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema/>
+PREFIX fdi: <https://www.fdiworldental.org/>
+PREFIX ex: <http://example.com/>
+
+ex:PatientShape {
+  fhir:identifier xsd:string ;
+  fhir:name xsd:string ;
+  fhir:birthDate xsd:dateTime ;
+  fhir:gender ["male" "female" "other" "unknown"] ;
+  fhir:telecom @ex:ContactPointShape*
+}
+
+ex:ContactPointShape {
+  fhir:value xsd:string ;
+  fhir:system ["phone" "email" "fax" "pager" "url" "sms" "other"]
+}
+
+ex:PractitionerShape {
+  fhir:identifier xsd:string ;
+  fhir:name xsd:string
+}
+
+ex:PerformerShape {
+  fhir:actor @ex:PractitionerShape
+}
+
+ex:ProcedureShape {
+  fhir:code @ex:CodeableConceptShape ;
+  fhir:occurrenceDateTime xsd:dateTime ;
+  fhir:status ["preparation" "in-progress" "not-done" "on-hold" "stopped" "completed" "entered-in-error" "unknown"] ;
+  fhir:performer @ex:PerformerShape 
+}
+
+ex:CodeableConceptShape {
+  fhir:coding @ex:CodingShape ;
+  fhir:text xsd:string
+}
+
+ex:CodingShape {
+  fhir:system IRI ;
+  fhir:code xsd:string ;
+  fhir:display xsd:string
+}
+
+ex:AllergyIntolerance {
+  fhir:code @ex:CodeableConceptShape ;
+  fhir:clinicalStatus @ex:CodeableConceptShape ;
+  fhir:criticality ["low" "high" "unable-to-assess"] ;
+  fhir:recordedDate xsd:dateTime
+}

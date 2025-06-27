@@ -1,0 +1,17 @@
+{
+  "name": "demo",
+  "version": "0.0.1",
+  "private": true,
+  "description": "A very short demonstration of VocabTerm usage",
+  "main": "index.js",
+  "author": {
+    "name": "Nicolas Seydoux",
+    "url": "https://solid.zwifi.eu/profile/card#me"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@rdfjs/types": "^1.0.1",
+    "mock-local-storage": "^1.1.11",
+    "rdf-data-factory": "^1.1.0"
+  }
+}

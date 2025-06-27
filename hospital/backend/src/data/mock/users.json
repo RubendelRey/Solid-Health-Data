@@ -1,0 +1,56 @@
+[
+	{
+		"email": "admin@hospital.com",
+		"password": "password",
+		"role": "administrator",
+		"profile": {
+			"firstName": "Hospital",
+			"lastName": "Administrator"
+		}
+	},
+	{
+		"email": "doctor1@hospital.com",
+		"password": "password",
+		"role": "doctor",
+		"profile": {
+			"firstName": "John",
+			"lastName": "Smith"
+		}
+	},
+	{
+		"email": "doctor2@hospital.com",
+		"password": "password",
+		"role": "doctor",
+		"profile": {
+			"firstName": "Sarah",
+			"lastName": "Johnson"
+		}
+	},
+	{
+		"email": "patient1@hospital.com",
+		"password": "password",
+		"role": "patient",
+		"profile": {
+			"firstName": "Jane",
+			"lastName": "Doe"
+		}
+	},
+	{
+		"email": "patient2@hospital.com",
+		"password": "password",
+		"role": "patient",
+		"profile": {
+			"firstName": "Michael",
+			"lastName": "Brown"
+		}
+	},
+	{
+		"email": "patient3@hospital.com",
+		"password": "password",
+		"role": "patient",
+		"profile": {
+			"firstName": "Emily",
+			"lastName": "Davis"
+		}
+	}
+]

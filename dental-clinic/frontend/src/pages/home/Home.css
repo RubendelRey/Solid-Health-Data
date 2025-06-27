@@ -1,0 +1,201 @@
+.home-container {
+	min-height: 100vh;
+	background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+	padding: 2rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.hero-section {
+	max-width: 1200px;
+	width: 100%;
+	background: white;
+	border-radius: 20px;
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+	padding: 3rem;
+	text-align: center;
+}
+
+.clinic-branding {
+	margin-bottom: 3rem;
+}
+
+.logo-container {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 2rem;
+}
+
+.clinic-logo {
+	width: 120px;
+	height: 120px;
+	filter: drop-shadow(0 4px 8px rgba(0, 102, 204, 0.3));
+	transition: transform 0.3s ease;
+}
+
+.clinic-logo:hover {
+	transform: scale(1.05);
+}
+
+.clinic-name {
+	font-size: 3.5rem;
+	font-weight: 700;
+	color: #0066cc;
+	margin: 0 0 0.5rem 0;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.clinic-tagline {
+	font-size: 1.3rem;
+	color: #666;
+	font-style: italic;
+	margin: 0 0 2rem 0;
+	font-weight: 300;
+}
+
+.clinic-description {
+	text-align: left;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.clinic-description h2 {
+	font-size: 2.5rem;
+	color: #003d7a;
+	margin-bottom: 1.5rem;
+	text-align: center;
+	font-weight: 600;
+}
+
+.clinic-description > p {
+	font-size: 1.1rem;
+	line-height: 1.8;
+	color: #444;
+	margin-bottom: 2.5rem;
+	text-align: center;
+}
+
+.services-preview {
+	background: #f8f9fa;
+	padding: 2rem;
+	border-radius: 15px;
+	margin-bottom: 2.5rem;
+	border-left: 5px solid #0066cc;
+}
+
+.services-preview h3 {
+	font-size: 1.5rem;
+	color: #003d7a;
+	margin-bottom: 1.5rem;
+	font-weight: 600;
+}
+
+.services-preview ul {
+	list-style: none;
+	padding: 0;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 0.8rem;
+}
+
+.services-preview li {
+	background: white;
+	padding: 0.8rem 1.2rem;
+	border-radius: 8px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+	color: #555;
+	font-weight: 500;
+	position: relative;
+	padding-left: 2.5rem;
+}
+
+.services-preview li::before {
+	content: "✓";
+	position: absolute;
+	left: 1rem;
+	color: #0066cc;
+	font-weight: bold;
+	font-size: 1.1rem;
+}
+
+.contact-info {
+	background: #0066cc;
+	color: white;
+	padding: 2rem;
+	border-radius: 15px;
+	margin-top: 2rem;
+}
+
+.contact-info h3 {
+	font-size: 1.5rem;
+	margin-bottom: 1.5rem;
+	text-align: center;
+	font-weight: 600;
+}
+
+.contact-details {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 1rem;
+}
+
+.contact-item {
+	background: rgba(255, 255, 255, 0.1);
+	padding: 1rem;
+	border-radius: 8px;
+	backdrop-filter: blur(10px);
+}
+
+.contact-item strong {
+	display: block;
+	margin-bottom: 0.5rem;
+	font-weight: 600;
+	color: #b3d9ff;
+}
+
+@media (max-width: 768px) {
+	.home-container {
+		padding: 1rem;
+	}
+
+	.hero-section {
+		padding: 2rem;
+	}
+
+	.clinic-name {
+		font-size: 2.5rem;
+	}
+
+	.clinic-logo {
+		width: 80px;
+		height: 80px;
+	}
+
+	.clinic-description h2 {
+		font-size: 2rem;
+	}
+
+	.services-preview ul {
+		grid-template-columns: 1fr;
+	}
+
+	.contact-details {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 480px) {
+	.clinic-name {
+		font-size: 2rem;
+	}
+
+	.clinic-description h2 {
+		font-size: 1.8rem;
+	}
+
+	.clinic-tagline {
+		font-size: 1.1rem;
+	}
+}

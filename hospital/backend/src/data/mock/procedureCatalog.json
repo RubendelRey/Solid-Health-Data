@@ -1,0 +1,572 @@
+[
+	{
+		"code": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "162673000",
+					"display": "General examination of patient"
+				}
+			],
+			"text": "General physical examination"
+		},
+		"category": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "165197003",
+					"display": "Diagnostic procedure"
+				}
+			]
+		},
+		"description": "Comprehensive general physical examination of patient including vital signs, physical assessment, and basic health screening",
+		"cost": {
+			"estimated": 150,
+			"currency": "EUR"
+		},
+		"duration": {
+			"value": 30,
+			"unit": "minutes"
+		}
+	},
+	{
+		"code": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "135840009",
+					"display": "Blood pressure monitoring"
+				}
+			],
+			"text": "Blood pressure measurement and monitoring"
+		},
+		"category": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "165197003",
+					"display": "Diagnostic procedure"
+				}
+			]
+		},
+		"description": "Blood pressure monitoring and assessment for hypertension management",
+		"cost": {
+			"estimated": 50,
+			"currency": "EUR"
+		},
+		"duration": {
+			"value": 15,
+			"unit": "minutes"
+		}
+	},
+	{
+		"code": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "396550006",
+					"display": "Blood test"
+				}
+			],
+			"text": "Blood laboratory test"
+		},
+		"category": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "165197003",
+					"display": "Diagnostic procedure"
+				}
+			]
+		},
+		"description": "Blood laboratory analysis including complete blood count and basic metabolic panel",
+		"cost": {
+			"estimated": 100,
+			"currency": "EUR"
+		},
+		"duration": {
+			"value": 10,
+			"unit": "minutes"
+		}
+	},
+	{
+		"code": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "81380004",
+					"display": "X-ray examination"
+				}
+			],
+			"text": "Chest X-ray"
+		},
+		"category": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "363679005",
+					"display": "Imaging"
+				}
+			]
+		},
+		"description": "Chest X-ray examination for diagnostic imaging",
+		"cost": {
+			"estimated": 200,
+			"currency": "EUR"
+		},
+		"duration": {
+			"value": 20,
+			"unit": "minutes"
+		}
+	},
+	{
+		"code": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "29303009",
+					"display": "Electrocardiogram"
+				}
+			],
+			"text": "ECG examination"
+		},
+		"category": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "165197003",
+					"display": "Diagnostic procedure"
+				}
+			]
+		},
+		"description": "Electrocardiogram examination for cardiac assessment",
+		"cost": {
+			"estimated": 120,
+			"currency": "EUR"
+		},
+		"duration": {
+			"value": 25,
+			"unit": "minutes"
+		}
+	},
+	{
+		"code": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "34043003",
+					"display": "Dental examination"
+				}
+			],
+			"text": "Dental examination"
+		},
+		"category": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "165197003",
+					"display": "Diagnostic procedure"
+				}
+			]
+		},
+		"description": "Comprehensive dental examination including oral health assessment and diagnostic evaluation",
+		"cost": {
+			"estimated": 80,
+			"currency": "EUR"
+		},
+		"duration": {
+			"value": 30,
+			"unit": "minutes"
+		}
+	},
+	{
+		"code": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "1258927004",
+					"display": "Teeth cleaning"
+				}
+			],
+			"text": "Professional teeth cleaning"
+		},
+		"category": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "387713003",
+					"display": "Surgical procedure"
+				}
+			]
+		},
+		"description": "Professional dental cleaning and prophylaxis to remove plaque and tartar",
+		"cost": {
+			"estimated": 60,
+			"currency": "EUR"
+		},
+		"duration": {
+			"value": 45,
+			"unit": "minutes"
+		}
+	},
+	{
+		"code": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "287451003",
+					"display": "Cavity filling"
+				}
+			],
+			"text": "Dental cavity filling"
+		},
+		"category": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "387713003",
+					"display": "Surgical procedure"
+				}
+			]
+		},
+		"description": "Restoration of tooth cavity with dental filling material",
+		"cost": {
+			"estimated": 120,
+			"currency": "EUR"
+		},
+		"duration": {
+			"value": 60,
+			"unit": "minutes"
+		}
+	},
+	{
+		"code": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "234712004",
+					"display": "Root canal treatment"
+				}
+			],
+			"text": "Root canal treatment"
+		},
+		"category": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "387713003",
+					"display": "Surgical procedure"
+				}
+			]
+		},
+		"description": "Endodontic treatment to remove infected or damaged tooth pulp",
+		"cost": {
+			"estimated": 400,
+			"currency": "EUR"
+		},
+		"duration": {
+			"value": 90,
+			"unit": "minutes"
+		}
+	},
+	{
+		"code": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "55162003",
+					"display": "Tooth extraction"
+				}
+			],
+			"text": "Tooth extraction"
+		},
+		"category": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "387713003",
+					"display": "Surgical procedure"
+				}
+			]
+		},
+		"description": "Surgical removal of tooth from dental alveolus",
+		"cost": {
+			"estimated": 150,
+			"currency": "EUR"
+		},
+		"duration": {
+			"value": 45,
+			"unit": "minutes"
+		}
+	},
+	{
+		"code": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "42937000",
+					"display": "Crown placement"
+				}
+			],
+			"text": "Dental crown placement"
+		},
+		"category": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "387713003",
+					"display": "Surgical procedure"
+				}
+			]
+		},
+		"description": "Placement of dental crown to restore damaged tooth structure",
+		"cost": {
+			"estimated": 600,
+			"currency": "EUR"
+		},
+		"duration": {
+			"value": 75,
+			"unit": "minutes"
+		}
+	},
+	{
+		"code": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "86288009",
+					"display": "Dental implant"
+				}
+			],
+			"text": "Dental implant placement"
+		},
+		"category": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "387713003",
+					"display": "Surgical procedure"
+				}
+			]
+		},
+		"description": "Surgical placement of dental implant to replace missing tooth",
+		"cost": {
+			"estimated": 1200,
+			"currency": "EUR"
+		},
+		"duration": {
+			"value": 120,
+			"unit": "minutes"
+		}
+	},
+	{
+		"code": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "1285005000",
+					"display": "Dental bridge"
+				}
+			],
+			"text": "Dental bridge placement"
+		},
+		"category": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "387713003",
+					"display": "Surgical procedure"
+				}
+			]
+		},
+		"description": "Placement of dental bridge to replace one or more missing teeth",
+		"cost": {
+			"estimated": 800,
+			"currency": "EUR"
+		},
+		"duration": {
+			"value": 90,
+			"unit": "minutes"
+		}
+	},
+	{
+		"code": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "12491002",
+					"display": "Teeth whitening"
+				}
+			],
+			"text": "Professional teeth whitening"
+		},
+		"category": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "182813001",
+					"display": "Cosmetic procedure"
+				}
+			]
+		},
+		"description": "Professional dental whitening treatment to improve tooth appearance",
+		"cost": {
+			"estimated": 250,
+			"currency": "EUR"
+		},
+		"duration": {
+			"value": 60,
+			"unit": "minutes"
+		}
+	},
+	{
+		"code": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "46209003",
+					"display": "Braces fitting"
+				}
+			],
+			"text": "Orthodontic braces fitting"
+		},
+		"category": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "387713003",
+					"display": "Surgical procedure"
+				}
+			]
+		},
+		"description": "Initial fitting and placement of orthodontic braces for teeth alignment",
+		"cost": {
+			"estimated": 1500,
+			"currency": "EUR"
+		},
+		"duration": {
+			"value": 120,
+			"unit": "minutes"
+		}
+	},
+	{
+		"code": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "239700001",
+					"display": "Braces adjustment"
+				}
+			],
+			"text": "Orthodontic braces adjustment"
+		},
+		"category": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "387713003",
+					"display": "Surgical procedure"
+				}
+			]
+		},
+		"description": "Periodic adjustment and maintenance of orthodontic braces",
+		"cost": {
+			"estimated": 80,
+			"currency": "EUR"
+		},
+		"duration": {
+			"value": 30,
+			"unit": "minutes"
+		}
+	},
+	{
+		"code": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "65546002",
+					"display": "Wisdom tooth extraction"
+				}
+			],
+			"text": "Wisdom tooth extraction"
+		},
+		"category": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "387713003",
+					"display": "Surgical procedure"
+				}
+			]
+		},
+		"description": "Surgical extraction of wisdom tooth (third molar)",
+		"cost": {
+			"estimated": 200,
+			"currency": "EUR"
+		},
+		"duration": {
+			"value": 60,
+			"unit": "minutes"
+		}
+	},
+	{
+		"code": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "68071007",
+					"display": "Fluoride treatment"
+				}
+			],
+			"text": "Fluoride treatment"
+		},
+		"category": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "182813001",
+					"display": "Preventive procedure"
+				}
+			]
+		},
+		"description": "Professional fluoride application for cavity prevention and tooth strengthening",
+		"cost": {
+			"estimated": 40,
+			"currency": "EUR"
+		},
+		"duration": {
+			"value": 20,
+			"unit": "minutes"
+		}
+	},
+	{
+		"code": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "1269321004",
+					"display": "Denture fitting"
+				}
+			],
+			"text": "Denture fitting"
+		},
+		"category": {
+			"coding": [
+				{
+					"system": "http://snomed.info/sct",
+					"code": "387713003",
+					"display": "Surgical procedure"
+				}
+			]
+		},
+		"description": "Fitting and placement of complete or partial dentures",
+		"cost": {
+			"estimated": 500,
+			"currency": "EUR"
+		},
+		"duration": {
+			"value": 90,
+			"unit": "minutes"
+		}
+	}
+]

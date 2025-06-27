@@ -1,0 +1,162 @@
+[
+	{
+		"email": "patient1@hospital.com",
+		"name": [
+			{
+				"use": "official",
+				"family": "Doe",
+				"given": ["Jane"]
+			}
+		],
+		"telecom": [
+			{
+				"system": "phone",
+				"value": "+1234567890",
+				"use": "home"
+			},
+			{
+				"system": "email",
+				"value": "patient1@hospital.com",
+				"use": "home"
+			}
+		],
+		"gender": "female",
+		"birthDate": "1985-05-15",
+		"address": [
+			{
+				"use": "home",
+				"type": "physical",
+				"text": "123 Main St, Anytown, ST 12345",
+				"line": ["123 Main St"],
+				"city": "Anytown",
+				"state": "ST",
+				"postalCode": "12345",
+				"country": "US"
+			}
+		],
+		"maritalStatus": {
+			"coding": [
+				{
+					"system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+					"code": "M",
+					"display": "Married"
+				}
+			]
+		},
+		"emergencyContact": [
+			{
+				"relationship": [
+					{
+						"coding": [
+							{
+								"system": "http://terminology.hl7.org/CodeSystem/v2-0131",
+								"code": "C",
+								"display": "Emergency Contact"
+							}
+						]
+					}
+				],
+				"name": {
+					"family": "Doe",
+					"given": ["John"]
+				},
+				"telecom": [
+					{
+						"system": "phone",
+						"value": "+1234567891"
+					}
+				]
+			}
+		]
+	},
+	{
+		"email": "patient2@hospital.com",
+		"name": [
+			{
+				"use": "official",
+				"family": "Brown",
+				"given": ["Michael"]
+			}
+		],
+		"telecom": [
+			{
+				"system": "phone",
+				"value": "+1234567892",
+				"use": "home"
+			},
+			{
+				"system": "email",
+				"value": "patient2@hospital.com",
+				"use": "home"
+			}
+		],
+		"gender": "male",
+		"birthDate": "1978-11-22",
+		"address": [
+			{
+				"use": "home",
+				"type": "physical",
+				"text": "456 Oak Ave, Anytown, ST 12345",
+				"line": ["456 Oak Ave"],
+				"city": "Anytown",
+				"state": "ST",
+				"postalCode": "12345",
+				"country": "US"
+			}
+		],
+		"maritalStatus": {
+			"coding": [
+				{
+					"system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+					"code": "S",
+					"display": "Single"
+				}
+			]
+		}
+	},
+	{
+		"email": "patient3@hospital.com",
+		"name": [
+			{
+				"use": "official",
+				"family": "Davis",
+				"given": ["Emily"]
+			}
+		],
+		"telecom": [
+			{
+				"system": "phone",
+				"value": "+1234567893",
+				"use": "home"
+			},
+			{
+				"system": "email",
+				"value": "patient3@hospital.com",
+				"use": "home"
+			}
+		],
+		"gender": "female",
+		"birthDate": "1992-03-08",
+		"address": [
+			{
+				"use": "home",
+				"type": "physical",
+				"text": "789 Pine St, Anytown, ST 12345",
+				"line": ["789 Pine St"],
+				"city": "Anytown",
+				"state": "ST",
+				"postalCode": "12345",
+				"country": "US"
+			}
+		],
+		"maritalStatus": {
+			"coding": [
+				{
+					"system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+					"code": "S",
+					"display": "Single"
+				}
+			]
+		}
+	}
+]
